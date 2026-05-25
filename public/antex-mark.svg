@@ -1,0 +1,20 @@
+<svg width="512" height="448" viewBox="0 0 512 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="448" rx="64" fill="#0A302A"/>
+  <rect x="2" y="2" width="508" height="444" rx="62" stroke="#FFE7A1" stroke-opacity=".82" stroke-width="4"/>
+  <g filter="url(#glow)">
+    <path d="M256 65l126 42v86c0 94-55 150-126 190-71-40-126-96-126-190v-86l126-42z" fill="#071412" stroke="url(#gold)" stroke-width="9"/>
+    <path d="M177 277l58-119h47l58 119h-45l-12-27h-53l-12 27h-41zm67-61h26l-13-31-13 31z" fill="url(#gold)"/>
+    <path d="M302 157h72l-17 32h-72l17-32zm-15 47h70l-17 32h-70l17-32z" fill="url(#gold)"/>
+  </g>
+  <text x="256" y="404" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#FFE7A1">AntEx</text>
+  <defs>
+    <linearGradient id="gold" x1="128" y1="92" x2="388" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE7A1"/>
+      <stop offset=".48" stop-color="#D8A84B"/>
+      <stop offset="1" stop-color="#FFF2D2"/>
+    </linearGradient>
+    <filter id="glow" x="72" y="24" width="368" height="400" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#D8A84B" flood-opacity=".25"/>
+    </filter>
+  </defs>
+</svg>

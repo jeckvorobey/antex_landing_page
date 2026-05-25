@@ -1,0 +1,3226 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "u5YWe",
+      "x": 0,
+      "y": 0,
+      "name": "AntEx Lead Magnet Landing / Desktop 1440",
+      "clip": true,
+      "width": 1440,
+      "height": 4380,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "radial",
+        "enabled": true,
+        "rotation": 0,
+        "size": {
+          "width": 1.1,
+          "height": 0.8
+        },
+        "colors": [
+          {
+            "color": "#16362F",
+            "position": 0
+          },
+          {
+            "color": "#071412",
+            "position": 0.62
+          },
+          {
+            "color": "#030706",
+            "position": 1
+          }
+        ],
+        "center": {
+          "y": 0.12
+        }
+      },
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "VUYPz",
+          "name": "Hero / poster lead magnet",
+          "clip": true,
+          "width": "fill_container",
+          "height": 1040,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 0.9,
+              "height": 0.7
+            },
+            "colors": [
+              {
+                "color": "#1A443B",
+                "position": 0
+              },
+              {
+                "color": "#0A1A17",
+                "position": 0.54
+              },
+              {
+                "color": "#06100E",
+                "position": 1
+              }
+            ],
+            "center": {
+              "y": 0.2
+            }
+          },
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            78,
+            110,
+            72,
+            110
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "D1oJ1",
+              "name": "Logo image asset",
+              "width": 260,
+              "height": 228,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "logo.PNG",
+                "mode": "fill"
+              },
+              "cornerRadius": 28,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#D8A84B55",
+                "offset": {
+                  "x": 0,
+                  "y": 22
+                },
+                "blur": 60
+              }
+            },
+            {
+              "type": "text",
+              "id": "lnrF4",
+              "name": "Eyebrow",
+              "fill": "$gold-soft",
+              "content": "ANTEX • ФИНАНСОВЫЙ СЕРВИС ДЛЯ ПУТЕШЕСТВИЙ И РЕЛОКАЦИИ",
+              "fontFamily": "$font-caption",
+              "fontSize": 18,
+              "fontWeight": "600",
+              "letterSpacing": 2.8
+            },
+            {
+              "type": "text",
+              "id": "hSZLj",
+              "name": "Hero headline",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": 920,
+              "content": "Бесплатно разберём вашу задачу по деньгам, поездке или релокации",
+              "lineHeight": 1.02,
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 76,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "wBymf",
+              "name": "Hero subhead",
+              "fill": "$text-muted",
+              "textGrowth": "fixed-width",
+              "width": 760,
+              "content": "Обмен RUB/USDT на местную валюту, доставка наличных, бронирования и аренда жилья в Таиланде, Вьетнаме и Грузии — без предоплаты и лишней переписки.",
+              "lineHeight": 1.34,
+              "textAlign": "center",
+              "fontFamily": "$font-body",
+              "fontSize": 25,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "V4p5Xs",
+              "name": "Trust badges",
+              "gap": 18,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "mvcJT",
+                  "name": "Trust badge / 3 years",
+                  "fill": "#0A201C",
+                  "cornerRadius": "$radius-pill",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "gap": 10,
+                  "padding": [
+                    14,
+                    22
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oyWuq",
+                      "name": "check1",
+                      "fill": "$gold-bright",
+                      "content": "✓",
+                      "fontFamily": "$font-body",
+                      "fontSize": 22,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "lNs7h",
+                      "name": "badgeText1",
+                      "fill": "$text-main",
+                      "content": "Более 3 лет работы",
+                      "fontFamily": "$font-body",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KZ7XS",
+                  "name": "Trust badge / no prepay",
+                  "fill": "#0A201C",
+                  "cornerRadius": "$radius-pill",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "gap": 10,
+                  "padding": [
+                    14,
+                    22
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "iP3Oe",
+                      "name": "check2",
+                      "fill": "$gold-bright",
+                      "content": "✓",
+                      "fontFamily": "$font-body",
+                      "fontSize": 22,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "EtsW4",
+                      "name": "badgeText2",
+                      "fill": "$text-main",
+                      "content": "Без предоплаты",
+                      "fontFamily": "$font-body",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pV7eI",
+              "name": "Hero CTA row",
+              "gap": 16,
+              "padding": [
+                12,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "b3Nrx",
+                  "name": "Primary CTA Max",
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#FFE7A1",
+                        "position": 0
+                      },
+                      {
+                        "color": "#D8A84B",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": "$radius-pill",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#D8A84B77",
+                    "offset": {
+                      "x": 0,
+                      "y": 18
+                    },
+                    "blur": 42
+                  },
+                  "gap": 10,
+                  "padding": [
+                    22,
+                    34
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "M9Qd1",
+                      "name": "ctaMaxText",
+                      "fill": "#08100E",
+                      "content": "Написать в Max",
+                      "fontFamily": "$font-body",
+                      "fontSize": 22,
+                      "fontWeight": "800"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "y6JZ5C",
+                  "name": "Secondary CTA Telegram",
+                  "fill": "#091A17",
+                  "cornerRadius": "$radius-pill",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "gap": 10,
+                  "padding": [
+                    22,
+                    34
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rwd6J",
+                      "name": "ctaTgText",
+                      "fill": "$gold-bright",
+                      "content": "Написать в Telegram",
+                      "fontFamily": "$font-body",
+                      "fontSize": 22,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "O2Tj6C",
+              "name": "Country strip",
+              "gap": 18,
+              "padding": [
+                8,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "U1yfB",
+                  "name": "geo",
+                  "fill": "$text-main",
+                  "content": "Таиланд • Вьетнам • Грузия",
+                  "fontFamily": "$font-body",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kUv2h",
+          "name": "Services / gold bento",
+          "width": "fill_container",
+          "fill": "$bg-ink",
+          "layout": "vertical",
+          "gap": 34,
+          "padding": [
+            72,
+            120,
+            96,
+            120
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "M4m7O",
+              "name": "servicesTitle",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Что можно решить через AntEx",
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 54,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "kGPpN",
+              "name": "servicesSub",
+              "fill": "$text-muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Один вход — несколько финансовых и бытовых задач для поездки, переезда или жизни за границей.",
+              "lineHeight": 1.35,
+              "textAlign": "center",
+              "fontFamily": "$font-body",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "sZyxg",
+              "name": "Service row 1",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "T93HQ",
+                  "name": "Card / exchange",
+                  "width": "fill_container",
+                  "height": 280,
+                  "fill": "#0B211D",
+                  "cornerRadius": "$radius-card",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000088",
+                    "offset": {
+                      "x": 0,
+                      "y": 16
+                    },
+                    "blur": 42
+                  },
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cgOcZ",
+                      "name": "iconExchange",
+                      "fill": "$gold-bright",
+                      "content": "₽ ⇄ ₿",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 48,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "T4ElH",
+                      "name": "titleExchange",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Обмен валют / криптовалют",
+                      "fontFamily": "$font-body",
+                      "fontSize": 28,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "O5kCyq",
+                      "name": "descExchange",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "RUB / USDT → местная валюта. Помогаем подобрать понятный маршрут под страну и задачу.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "x7WFpp",
+                  "name": "Card / cash delivery",
+                  "width": "fill_container",
+                  "height": 280,
+                  "fill": "#0B211D",
+                  "cornerRadius": "$radius-card",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000088",
+                    "offset": {
+                      "x": 0,
+                      "y": 16
+                    },
+                    "blur": 42
+                  },
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "A5MEB",
+                      "name": "Icon / cash delivery desktop",
+                      "height": 54,
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "C6t18b",
+                          "name": "cashMoneyD",
+                          "width": 48,
+                          "height": 48,
+                          "iconFontName": "payments",
+                          "iconFontFamily": "Material Symbols Outlined",
+                          "fill": "$gold-bright"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "z79Rq2",
+                          "name": "cashCarD",
+                          "width": 48,
+                          "height": 48,
+                          "iconFontName": "local_taxi",
+                          "iconFontFamily": "Material Symbols Outlined",
+                          "fill": "$gold-bright"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "quPXO",
+                      "name": "titleCash",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Доставка наличных",
+                      "fontFamily": "$font-body",
+                      "fontSize": 28,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ii0bZ",
+                      "name": "descCash",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Передача наличных в городе вашего пребывания после согласования деталей с менеджером.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "h2jgK",
+              "name": "Service row 2",
+              "width": "fill_container",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AAzG3",
+                  "name": "Card / bookings",
+                  "width": "fill_container",
+                  "height": 280,
+                  "fill": "#0B211D",
+                  "cornerRadius": "$radius-card",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000088",
+                    "offset": {
+                      "x": 0,
+                      "y": 16
+                    },
+                    "blur": 42
+                  },
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "O64me8",
+                      "name": "Icon / online payment desktop",
+                      "height": 54,
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "lrLg5",
+                          "name": "payCardD",
+                          "width": 48,
+                          "height": 48,
+                          "iconFontName": "credit_card",
+                          "iconFontFamily": "Material Symbols Outlined",
+                          "fill": "$gold-bright"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "KArRJ",
+                          "name": "payCheckD",
+                          "width": 48,
+                          "height": 48,
+                          "iconFontName": "task_alt",
+                          "iconFontFamily": "Material Symbols Outlined",
+                          "fill": "$gold-bright"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "RhXKi",
+                      "name": "titleBooking",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Бронирования и онлайн-оплаты",
+                      "fontFamily": "$font-body",
+                      "fontSize": 28,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KuZtp",
+                      "name": "descBooking",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Помощь с отелями, авиабилетами, Booking, Agoda, Airbnb и оплатой онлайн-сервисов.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "E0MNPO",
+                  "name": "Card / rent",
+                  "width": "fill_container",
+                  "height": 280,
+                  "fill": "#0B211D",
+                  "cornerRadius": "$radius-card",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#00000088",
+                    "offset": {
+                      "x": 0,
+                      "y": 16
+                    },
+                    "blur": 42
+                  },
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 32,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "xlGO9",
+                      "name": "Icon / rent desktop",
+                      "height": 54,
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "DW0Lp",
+                          "name": "rentHomeD",
+                          "width": 48,
+                          "height": 48,
+                          "iconFontName": "home",
+                          "iconFontFamily": "Material Symbols Outlined",
+                          "fill": "$gold-bright"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "pBdrd",
+                          "name": "rentMoneyD",
+                          "width": 48,
+                          "height": 48,
+                          "iconFontName": "attach_money",
+                          "iconFontFamily": "Material Symbols Outlined",
+                          "fill": "$gold-bright"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "kzXEr",
+                      "name": "titleRent",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Аренда жилья",
+                      "fontFamily": "$font-body",
+                      "fontSize": 28,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sUG0R",
+                      "name": "descRent",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Поддержка при аренде жилья для путешествий, зимовки или релокации.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yoRcC",
+          "name": "Desktop process",
+          "width": "fill_container",
+          "fill": "#081815",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            86,
+            120,
+            96,
+            120
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "fJE6b",
+              "name": "processTitle",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Как проходит бесплатный разбор",
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 52,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "MDVDp",
+              "name": "steps",
+              "width": "fill_container",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HtT0x",
+                  "name": "step1",
+                  "width": "fill_container",
+                  "height": 210,
+                  "fill": "#0B211D",
+                  "cornerRadius": 24,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 28,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VSZkM",
+                      "name": "step1No",
+                      "fill": "$gold-bright",
+                      "content": "01",
+                      "fontFamily": "$font-caption",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zKzsZ",
+                      "name": "step1Text",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Опишите страну, сумму, город и сроки",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-body",
+                      "fontSize": 24,
+                      "fontWeight": "750"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AkPJb",
+                  "name": "step2",
+                  "width": "fill_container",
+                  "height": 210,
+                  "fill": "#0B211D",
+                  "cornerRadius": 24,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 28,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Mbkuf",
+                      "name": "step2No",
+                      "fill": "$gold-bright",
+                      "content": "02",
+                      "fontFamily": "$font-caption",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DtEhI",
+                      "name": "step2Text",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Менеджер предложит маршрут решения",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-body",
+                      "fontSize": 24,
+                      "fontWeight": "750"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rlF20",
+                  "name": "step3",
+                  "width": "fill_container",
+                  "height": 210,
+                  "fill": "#0B211D",
+                  "cornerRadius": 24,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "$line-gold"
+                  },
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 28,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "AgRrQ",
+                      "name": "step3No",
+                      "fill": "$gold-bright",
+                      "content": "03",
+                      "fontFamily": "$font-caption",
+                      "fontSize": 18,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nq38f",
+                      "name": "step3Text",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Выберите Max, Telegram или заявку",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-body",
+                      "fontSize": 24,
+                      "fontWeight": "750"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dS7yu",
+          "name": "Desktop lead form",
+          "width": "fill_container",
+          "fill": "$bg-ink",
+          "gap": 36,
+          "padding": [
+            90,
+            120,
+            96,
+            120
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "KiH7Q",
+              "name": "leadCopy",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "KxTlR",
+                  "name": "leadTitle",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Оставьте заявку или напишите напрямую",
+                  "lineHeight": 1.05,
+                  "fontFamily": "$font-heading",
+                  "fontSize": 56,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "V124F",
+                  "name": "leadText",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Форма нужна для тех, кто хочет заранее описать задачу. Для быстрых вопросов — кнопки Max и Telegram.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "k27iGD",
+              "name": "Desktop form panel",
+              "width": 520,
+              "fill": "#0B211D",
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1.5,
+                "fill": "$gold"
+              },
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000099",
+                "offset": {
+                  "x": 0,
+                  "y": 24
+                },
+                "blur": 60
+              },
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VEKy8",
+                  "name": "field1",
+                  "width": "fill_container",
+                  "fill": "#071412",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#8D6B2E99"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "UqhDA",
+                      "name": "field1Label",
+                      "fill": "$gold-soft",
+                      "content": "Мессенджер",
+                      "fontFamily": "$font-caption",
+                      "fontSize": 12,
+                      "fontWeight": "800",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "ysWKW",
+                      "name": "field1Value",
+                      "fill": "$text-main",
+                      "content": "Max / Telegram",
+                      "fontFamily": "$font-body",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xWufx",
+                  "name": "field2",
+                  "width": "fill_container",
+                  "fill": "#071412",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#8D6B2E99"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "adifz",
+                      "name": "field2Label",
+                      "fill": "$gold-soft",
+                      "content": "Контакт",
+                      "fontFamily": "$font-caption",
+                      "fontSize": 12,
+                      "fontWeight": "800",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "PoHKB",
+                      "name": "field2Value",
+                      "fill": "$text-muted",
+                      "content": "@username или номер",
+                      "fontFamily": "$font-body",
+                      "fontSize": 18,
+                      "fontWeight": "650"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mKkb5",
+                  "name": "field3",
+                  "width": "fill_container",
+                  "fill": "#071412",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#8D6B2E99"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "NNBej",
+                      "name": "field3Label",
+                      "fill": "$gold-soft",
+                      "content": "Тема",
+                      "fontFamily": "$font-caption",
+                      "fontSize": 12,
+                      "fontWeight": "800",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "CxI3r",
+                      "name": "field3Value",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Обмен / наличные / бронирование / аренда",
+                      "fontFamily": "$font-body",
+                      "fontSize": 18,
+                      "fontWeight": "650"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xZNB6",
+                  "name": "field4",
+                  "width": "fill_container",
+                  "fill": "#071412",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#8D6B2E99"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gaViX",
+                      "name": "field4Label",
+                      "fill": "$gold-soft",
+                      "content": "Сообщение",
+                      "fontFamily": "$font-caption",
+                      "fontSize": 12,
+                      "fontWeight": "800",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "fQjuN",
+                      "name": "field4Value",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Коротко опишите страну, сумму, город и сроки",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xbTXg",
+                  "name": "submit",
+                  "width": "fill_container",
+                  "height": 66,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#FFF0B8",
+                        "position": 0
+                      },
+                      {
+                        "color": "#D8A84B",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": "$radius-pill",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jj2mp",
+                      "name": "submitText",
+                      "fill": "#030706",
+                      "content": "Отправить заявку",
+                      "fontFamily": "$font-body",
+                      "fontSize": 20,
+                      "fontWeight": "900"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "D1kBHb",
+          "name": "Desktop final CTA",
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1,
+              "height": 0.9
+            },
+            "colors": [
+              {
+                "color": "#16362F",
+                "position": 0
+              },
+              {
+                "color": "#06100E",
+                "position": 1
+              }
+            ],
+            "center": {
+              "y": 0
+            }
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            88,
+            120,
+            98,
+            120
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "E8l4R",
+              "name": "finalTitle",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": 820,
+              "content": "Начните с одного сообщения",
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 60,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "cMwFw",
+              "name": "finalText",
+              "fill": "$text-muted",
+              "textGrowth": "fixed-width",
+              "width": 720,
+              "content": "Max, Telegram или форма заявки — пользователь сам выбирает удобный способ связи.",
+              "lineHeight": 1.35,
+              "textAlign": "center",
+              "fontFamily": "$font-body",
+              "fontSize": 22,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "MhCF7",
+              "name": "finalButtons",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BlUs0",
+                  "name": "finalMax",
+                  "width": 300,
+                  "height": 68,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#FFF0B8",
+                        "position": 0
+                      },
+                      {
+                        "color": "#D8A84B",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": "$radius-pill",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "C0aYh8",
+                      "name": "finalMaxText",
+                      "fill": "#030706",
+                      "content": "Написать в Max",
+                      "fontFamily": "$font-body",
+                      "fontSize": 20,
+                      "fontWeight": "900"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cgj7V",
+                  "name": "finalTg",
+                  "width": 330,
+                  "height": 68,
+                  "fill": "#091A17",
+                  "cornerRadius": "$radius-pill",
+                  "stroke": {
+                    "thickness": 1.5,
+                    "fill": "$gold"
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nR8ON",
+                      "name": "finalTgText",
+                      "fill": "$gold-bright",
+                      "content": "Написать в Telegram",
+                      "fontFamily": "$font-body",
+                      "fontSize": 20,
+                      "fontWeight": "800"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RMmUs",
+              "name": "faqRow",
+              "width": "fill_container",
+              "gap": 20,
+              "padding": [
+                28,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "r8KLl",
+                  "name": "faq1",
+                  "width": "fill_container",
+                  "height": 150,
+                  "fill": "#0A201C",
+                  "cornerRadius": 24,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#8D6B2E77"
+                  },
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "h5qns",
+                      "name": "faq1Q",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Нужно ли вносить предоплату?",
+                      "fontFamily": "$font-body",
+                      "fontSize": 20,
+                      "fontWeight": "850"
+                    },
+                    {
+                      "type": "text",
+                      "id": "F5ihg",
+                      "name": "faq1A",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "В промо-материалах AntEx заявлено: без предоплаты. Детали менеджер уточнит по вашей задаче.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XtF04",
+                  "name": "faq2",
+                  "width": "fill_container",
+                  "height": 150,
+                  "fill": "#0A201C",
+                  "cornerRadius": 24,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#8D6B2E77"
+                  },
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "F7XzaI",
+                      "name": "faq2Q",
+                      "fill": "$text-main",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Какие страны доступны?",
+                      "fontFamily": "$font-body",
+                      "fontSize": 20,
+                      "fontWeight": "850"
+                    },
+                    {
+                      "type": "text",
+                      "id": "R4HoH",
+                      "name": "faq2A",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Таиланд, Вьетнам и Грузия — по данным текущего оффера.",
+                      "lineHeight": 1.35,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "Ss8GW",
+              "name": "footer",
+              "fill": "$text-muted",
+              "content": "Отзывы • Новости • Instagram • VK • Max • Threads",
+              "fontFamily": "$font-caption",
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "letterSpacing": 1.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "b1PhaZ",
+      "x": -520,
+      "y": 0,
+      "name": "AntEx Lead Magnet Landing / MOBILE FIRST 390",
+      "clip": true,
+      "width": 390,
+      "height": 4240,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "radial",
+        "enabled": true,
+        "rotation": 0,
+        "size": {
+          "width": 1.25,
+          "height": 0.56
+        },
+        "colors": [
+          {
+            "color": "#183C35",
+            "position": 0
+          },
+          {
+            "color": "#071412",
+            "position": 0.58
+          },
+          {
+            "color": "#030706",
+            "position": 1
+          }
+        ],
+        "center": {
+          "y": 0.08
+        }
+      },
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "V5KSJ8",
+          "name": "Mobile hero / lead magnet",
+          "clip": true,
+          "width": "fill_container",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1.2,
+              "height": 0.65
+            },
+            "colors": [
+              {
+                "color": "#1B473F",
+                "position": 0
+              },
+              {
+                "color": "#0A1A17",
+                "position": 0.58
+              },
+              {
+                "color": "#06100E",
+                "position": 1
+              }
+            ],
+            "center": {
+              "y": 0.14
+            }
+          },
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            34,
+            20
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ZvpxQ",
+              "name": "Mobile logo asset",
+              "width": 132,
+              "height": 116,
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "logo.PNG",
+                "mode": "fill"
+              },
+              "cornerRadius": 20,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#D8A84B66",
+                "offset": {
+                  "x": 0,
+                  "y": 16
+                },
+                "blur": 42
+              }
+            },
+            {
+              "type": "text",
+              "id": "R8mD4C",
+              "name": "mEyebrow",
+              "fill": "$gold-soft",
+              "content": "ANTEX • TH • VN • GE",
+              "fontFamily": "$font-caption",
+              "fontSize": 11,
+              "fontWeight": "700",
+              "letterSpacing": 1.8
+            },
+            {
+              "type": "text",
+              "id": "K9VYRU",
+              "name": "mHeadline",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Бесплатно разберём вашу задачу за границей",
+              "lineHeight": 1.04,
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 38,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "lhrpW",
+              "name": "mSubhead",
+              "fill": "$text-muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Обмен RUB/USDT, наличные, бронирования и аренда жилья в Таиланде, Вьетнаме и Грузии — без предоплаты.",
+              "lineHeight": 1.35,
+              "textAlign": "center",
+              "fontFamily": "$font-body",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "Ny9SJ",
+              "name": "Mobile trust badges",
+              "width": "fill_container",
+              "height": 134,
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "paRCD",
+                  "name": "mBadge1",
+                  "width": "fill_container",
+                  "height": 62,
+                  "fill": "#102A25",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1.5,
+                    "fill": "$gold"
+                  },
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I152q",
+                      "name": "mCheck1",
+                      "fill": "$gold-bright",
+                      "content": "✓",
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "L5tlQJ",
+                      "name": "mBadgeText1",
+                      "fill": "$text-main",
+                      "content": "Более 3 лет работы",
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "800"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xHaBA",
+                  "name": "mBadge2",
+                  "width": "fill_container",
+                  "height": 62,
+                  "fill": "#102A25",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1.5,
+                    "fill": "$gold"
+                  },
+                  "gap": 8,
+                  "padding": [
+                    12,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ckulp",
+                      "name": "mCheck2",
+                      "fill": "$gold-bright",
+                      "content": "✓",
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "y65Bk",
+                      "name": "mBadgeText2",
+                      "fill": "$text-main",
+                      "content": "Без предоплаты",
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "800"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NInQI",
+              "name": "Mobile CTA stack",
+              "width": "fill_container",
+              "height": 148,
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                8,
+                0,
+                0,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UZHgS",
+                  "name": "mCtaMax",
+                  "width": "fill_container",
+                  "height": 64,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#FFF0B8",
+                        "position": 0
+                      },
+                      {
+                        "color": "#E7B64F",
+                        "position": 0.52
+                      },
+                      {
+                        "color": "#B47B23",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": "$radius-pill",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#D8A84B66",
+                    "offset": {
+                      "x": 0,
+                      "y": 14
+                    },
+                    "blur": 36
+                  },
+                  "padding": [
+                    17,
+                    18
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "DkRij",
+                      "name": "mCtaMaxText",
+                      "fill": "#030706",
+                      "content": "Написать менеджеру в Max",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "900"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "D6LYHv",
+                  "name": "mCtaTg",
+                  "width": "fill_container",
+                  "height": 64,
+                  "fill": "#0F2B25",
+                  "cornerRadius": "$radius-pill",
+                  "stroke": {
+                    "thickness": 1.5,
+                    "fill": "$gold"
+                  },
+                  "padding": [
+                    16,
+                    18
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Bwko2",
+                      "name": "mCtaTgText",
+                      "fill": "$gold-bright",
+                      "content": "Написать менеджеру в Telegram",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "850"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "e2MD7Q",
+              "name": "mCountries",
+              "width": "fill_container",
+              "height": 42,
+              "padding": [
+                8,
+                0,
+                0,
+                0
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eBN7u",
+                  "name": "mGeo",
+                  "fill": "$gold-soft",
+                  "content": "Таиланд • Вьетнам • Грузия",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "sploK",
+          "name": "Mobile services",
+          "width": "fill_container",
+          "height": 1160,
+          "fill": "$bg-ink",
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            32,
+            20,
+            38,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Zs1gI",
+              "name": "mServicesTitle",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Что решаем",
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 32,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "EUFSC",
+              "name": "mServicesSub",
+              "fill": "$text-muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Коротко опишите ситуацию — менеджер предложит понятный маршрут решения.",
+              "lineHeight": 1.35,
+              "textAlign": "center",
+              "fontFamily": "$font-body",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "tA9Nw",
+              "name": "Mobile card / exchange",
+              "width": "fill_container",
+              "height": 220,
+              "fill": "#0B211D",
+              "cornerRadius": 22,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$line-gold"
+              },
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000088",
+                "offset": {
+                  "x": 0,
+                  "y": 10
+                },
+                "blur": 28
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vWQEB",
+                  "name": "mIcon1",
+                  "fill": "$gold-bright",
+                  "content": "₽ ⇄ ₿",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 32,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "CF0c2",
+                  "name": "mCardTitle1",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Обмен валют / криптовалют",
+                  "fontFamily": "$font-body",
+                  "fontSize": 20,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "uNknk",
+                  "name": "mCardDesc1",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "RUB / USDT → местная валюта под вашу страну и город.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Xta61",
+              "name": "Mobile card / cash",
+              "width": "fill_container",
+              "height": 210,
+              "fill": "#0B211D",
+              "cornerRadius": 22,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$line-gold"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kjiLi",
+                  "name": "Icon / cash delivery mobile",
+                  "height": 38,
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "G9rQs",
+                      "name": "cashMoneyM",
+                      "width": 34,
+                      "height": 34,
+                      "iconFontName": "payments",
+                      "iconFontFamily": "Material Symbols Outlined",
+                      "fill": "$gold-bright"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "z6vNaD",
+                      "name": "cashCarM",
+                      "width": 34,
+                      "height": 34,
+                      "iconFontName": "local_taxi",
+                      "iconFontFamily": "Material Symbols Outlined",
+                      "fill": "$gold-bright"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "aGP4g",
+                  "name": "mCardTitle2",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Доставка наличных",
+                  "fontFamily": "$font-body",
+                  "fontSize": 20,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "wQNWF",
+                  "name": "mCardDesc2",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Согласуем детали и город вашего пребывания.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "mS2lZ",
+              "name": "Mobile card / bookings",
+              "width": "fill_container",
+              "height": 220,
+              "fill": "#0B211D",
+              "cornerRadius": 22,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$line-gold"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "U2vKfb",
+                  "name": "Icon / online payment mobile",
+                  "height": 38,
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "T97Cp",
+                      "name": "payCardM",
+                      "width": 34,
+                      "height": 34,
+                      "iconFontName": "credit_card",
+                      "iconFontFamily": "Material Symbols Outlined",
+                      "fill": "$gold-bright"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "Y5PayW",
+                      "name": "payCheckM",
+                      "width": 34,
+                      "height": 34,
+                      "iconFontName": "task_alt",
+                      "iconFontFamily": "Material Symbols Outlined",
+                      "fill": "$gold-bright"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "i8sTd",
+                  "name": "mCardTitle3",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Бронирования и оплаты",
+                  "fontFamily": "$font-body",
+                  "fontSize": 20,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "eLuyV",
+                  "name": "mCardDesc3",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Отели, авиабилеты, Booking, Agoda, Airbnb и онлайн-сервисы.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "tT4zg",
+              "name": "Mobile card / rent",
+              "width": "fill_container",
+              "height": 216,
+              "fill": "#0B211D",
+              "cornerRadius": 22,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$line-gold"
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jbNoL",
+                  "name": "Icon / rent mobile",
+                  "height": 38,
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "PY91A",
+                      "name": "rentHomeM",
+                      "width": 34,
+                      "height": 34,
+                      "iconFontName": "home",
+                      "iconFontFamily": "Material Symbols Outlined",
+                      "fill": "$gold-bright"
+                    },
+                    {
+                      "type": "icon_font",
+                      "id": "EON0l",
+                      "name": "rentMoneyM",
+                      "width": 34,
+                      "height": 34,
+                      "iconFontName": "attach_money",
+                      "iconFontFamily": "Material Symbols Outlined",
+                      "fill": "$gold-bright"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "DfhKd",
+                  "name": "mCardTitle4",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Аренда жилья",
+                  "fontFamily": "$font-body",
+                  "fontSize": 20,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "W69DO5",
+                  "name": "mCardDesc4",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Поддержка при аренде для поездки, зимовки или релокации.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "j6xhjX",
+          "name": "Mobile process",
+          "width": "fill_container",
+          "height": 440,
+          "fill": "#081815",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            34,
+            20,
+            38,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "hgt3V",
+              "name": "mProcessTitle",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Как проходит разбор",
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 30,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "IHdvQ",
+              "name": "mStep1",
+              "width": "fill_container",
+              "height": 86,
+              "fill": "#0B211D",
+              "cornerRadius": 18,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#8D6B2E99"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yydtR",
+                  "name": "mStep1No",
+                  "fill": "$gold-bright",
+                  "content": "01",
+                  "fontFamily": "$font-caption",
+                  "fontSize": 14,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "z9Hqgi",
+                  "name": "mStep1Text",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Опишите страну, сумму, задачу и сроки",
+                  "lineHeight": 1.32,
+                  "fontFamily": "$font-body",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ruN8M",
+              "name": "mStep2",
+              "width": "fill_container",
+              "height": 86,
+              "fill": "#0B211D",
+              "cornerRadius": 18,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#8D6B2E99"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XrznK",
+                  "name": "mStep2No",
+                  "fill": "$gold-bright",
+                  "content": "02",
+                  "fontFamily": "$font-caption",
+                  "fontSize": 14,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "SFrVq",
+                  "name": "mStep2Text",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Менеджер предложит маршрут решения",
+                  "lineHeight": 1.32,
+                  "fontFamily": "$font-body",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dRFPB",
+              "name": "mStep3",
+              "width": "fill_container",
+              "height": 86,
+              "fill": "#0B211D",
+              "cornerRadius": 18,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#8D6B2E99"
+              },
+              "gap": 12,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LtshU",
+                  "name": "mStep3No",
+                  "fill": "$gold-bright",
+                  "content": "03",
+                  "fontFamily": "$font-caption",
+                  "fontSize": 14,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "uSl4u",
+                  "name": "mStep3Text",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Вы выбираете Max, Telegram или заявку",
+                  "lineHeight": 1.32,
+                  "fontFamily": "$font-body",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "j5i3Sm",
+          "name": "Mobile lead form",
+          "width": "fill_container",
+          "height": 820,
+          "fill": "$bg-ink",
+          "layout": "vertical",
+          "gap": 14,
+          "padding": [
+            36,
+            20,
+            42,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "zxxzm",
+              "name": "mFormTitle",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Оставить заявку",
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 32,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "mvEDq",
+              "name": "mFormSub",
+              "fill": "$text-muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Если удобнее не писать сразу — оставьте контакт, тему и короткое описание обращения.",
+              "lineHeight": 1.35,
+              "textAlign": "center",
+              "fontFamily": "$font-body",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "bXCJt",
+              "name": "mField1",
+              "width": "fill_container",
+              "height": 112,
+              "fill": "#0B211D",
+              "cornerRadius": 18,
+              "stroke": {
+                "thickness": 1,
+                "fill": "$line-gold"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "E3CnA5",
+                  "name": "mField1Label",
+                  "fill": "$gold-soft",
+                  "content": "Мессенджер",
+                  "fontFamily": "$font-caption",
+                  "fontSize": 11,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "text",
+                  "id": "HG7LY",
+                  "name": "mField1Value",
+                  "fill": "$text-main",
+                  "content": "Max / Telegram",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "yB6Dm",
+              "name": "mField2",
+              "width": "fill_container",
+              "height": 112,
+              "fill": "#0B211D",
+              "cornerRadius": 18,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#8D6B2E99"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tkHqI",
+                  "name": "mField2Label",
+                  "fill": "$gold-soft",
+                  "content": "Контакт",
+                  "fontFamily": "$font-caption",
+                  "fontSize": 11,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "text",
+                  "id": "d60F1",
+                  "name": "mField2Value",
+                  "fill": "$text-muted",
+                  "content": "@username или номер",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "asVJK",
+              "name": "mField3",
+              "width": "fill_container",
+              "height": 132,
+              "fill": "#0B211D",
+              "cornerRadius": 18,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#8D6B2E99"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Gyh9V",
+                  "name": "mField3Label",
+                  "fill": "$gold-soft",
+                  "content": "Тема",
+                  "fontFamily": "$font-caption",
+                  "fontSize": 11,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "text",
+                  "id": "SH7ks",
+                  "name": "mField3Value",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Обмен / наличные / бронирование / аренда",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "650"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "g7kjN4",
+              "name": "mField4",
+              "width": "fill_container",
+              "height": 132,
+              "fill": "#0B211D",
+              "cornerRadius": 18,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#8D6B2E99"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sSpdg",
+                  "name": "mField4Label",
+                  "fill": "$gold-soft",
+                  "content": "Сообщение",
+                  "fontFamily": "$font-caption",
+                  "fontSize": 11,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "text",
+                  "id": "R2H0h",
+                  "name": "mField4Value",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Коротко опишите страну, сумму, город и сроки",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jjM9X",
+              "name": "Mobile submit CTA",
+              "width": "fill_container",
+              "height": 66,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#FFE7A1",
+                    "position": 0
+                  },
+                  {
+                    "color": "#D8A84B",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": "$radius-pill",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#D8A84B66",
+                "offset": {
+                  "x": 0,
+                  "y": 14
+                },
+                "blur": 36
+              },
+              "padding": [
+                17,
+                18
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VHohd",
+                  "name": "mSubmitText",
+                  "fill": "#08100E",
+                  "content": "Отправить заявку",
+                  "fontFamily": "$font-body",
+                  "fontSize": 17,
+                  "fontWeight": "850"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EnUNC",
+          "name": "Mobile final CTA and FAQ",
+          "width": "fill_container",
+          "height": 850,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "radial",
+            "enabled": true,
+            "rotation": 0,
+            "size": {
+              "width": 1.2,
+              "height": 0.8
+            },
+            "colors": [
+              {
+                "color": "#16362F",
+                "position": 0
+              },
+              {
+                "color": "#06100E",
+                "position": 1
+              }
+            ],
+            "center": {
+              "y": 0
+            }
+          },
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            38,
+            20,
+            42,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "gIs1y",
+              "name": "mFinalTitle",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Начните с одного сообщения",
+              "textAlign": "center",
+              "fontFamily": "$font-heading",
+              "fontSize": 31,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "YM47Z",
+              "name": "mFinalSub",
+              "fill": "$text-muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Выберите удобный канал. Ссылки на Max и Telegram можно заменить при разработке.",
+              "lineHeight": 1.35,
+              "textAlign": "center",
+              "fontFamily": "$font-body",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "x1lnB",
+              "name": "mFinalMax",
+              "width": "fill_container",
+              "height": 66,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#FFE7A1",
+                    "position": 0
+                  },
+                  {
+                    "color": "#D8A84B",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": "$radius-pill",
+              "padding": [
+                16,
+                18
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zhV0E",
+                  "name": "mFinalMaxText",
+                  "fill": "#08100E",
+                  "content": "Написать менеджеру в Max",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "850"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LtM9x",
+              "name": "mFinalTg",
+              "width": "fill_container",
+              "height": 66,
+              "fill": "#091A17",
+              "cornerRadius": "$radius-pill",
+              "stroke": {
+                "thickness": 1,
+                "fill": "$line-gold"
+              },
+              "padding": [
+                16,
+                18
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sQEID",
+                  "name": "mFinalTgText",
+                  "fill": "$gold-bright",
+                  "content": "Написать менеджеру в Telegram",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "750"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "g1Zwc",
+              "name": "mFaq1",
+              "width": "fill_container",
+              "height": 160,
+              "fill": "#0A201C",
+              "cornerRadius": 20,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#8D6B2E77"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                18,
+                16
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "okTX4",
+                  "name": "mFaq1Q",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Нужно ли вносить предоплату?",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "xU1vF",
+                  "name": "mFaq1A",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "В промо-материалах AntEx заявлено: без предоплаты. Детали менеджер уточнит по вашей задаче.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HCrAq",
+              "name": "mFaq2",
+              "width": "fill_container",
+              "height": 140,
+              "fill": "#0A201C",
+              "cornerRadius": 20,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#8D6B2E77"
+              },
+              "layout": "vertical",
+              "gap": 8,
+              "padding": [
+                18,
+                16
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xiqvF",
+                  "name": "mFaq2Q",
+                  "fill": "$text-main",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Какие страны доступны?",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "sFIzj",
+                  "name": "mFaq2A",
+                  "fill": "$text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "В текущем оффере: Таиланд, Вьетнам и Грузия.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "$font-body",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "j5dEv",
+              "name": "mFooter",
+              "fill": "$text-muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Отзывы • Новости • Instagram • VK • Max • Threads",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "fontFamily": "$font-caption",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "pCAxu",
+      "x": 1500,
+      "y": 0,
+      "name": "React + Tailwind Implementation Spec",
+      "width": 520,
+      "height": 1180,
+      "fill": "#F7F1DF",
+      "cornerRadius": 24,
+      "stroke": {
+        "thickness": 1,
+        "fill": "#D8A84B"
+      },
+      "layout": "vertical",
+      "gap": 18,
+      "padding": 28,
+      "children": [
+        {
+          "type": "note",
+          "id": "e5KDE6",
+          "name": "specNote",
+          "width": "fill_container",
+          "height": 520,
+          "content": "React + Tailwind implementation spec\n\nMobile-first structure:\nHeroPoster -> ServiceCards -> ProcessSteps -> LeadForm -> CTAFooter. Desktop is an lg adaptation, not the source layout.\n\nTokens:\nbg #071412 / panel #0B1C19 / card #102A25 / gold #D8A84B / text #FFF2D2 / muted #B7A982.\n\nCTA contract:\n1. Написать менеджеру в Max\n2. Написать менеджеру в Telegram\n3. Оставить заявку: messenger, contact, topic, message.\n\nAnimation:\nGold sweep on hero, staggered cards, subtle CTA glow, form focus glow, reduced-motion fallback."
+        },
+        {
+          "type": "text",
+          "id": "puCuf",
+          "name": "specTitle",
+          "fill": "#071412",
+          "content": "Implementation spec",
+          "fontFamily": "Funnel Sans",
+          "fontSize": 34,
+          "fontWeight": "700"
+        },
+        {
+          "type": "text",
+          "id": "bJRSL",
+          "name": "specIntro",
+          "fill": "#2C332F",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Mobile-first React + Tailwind design notes for AntEx lead magnet landing.",
+          "lineHeight": 1.35,
+          "fontFamily": "Funnel Sans",
+          "fontSize": 16,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "Nsiwt",
+          "name": "specTokens",
+          "fill": "#071412",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Tokens\n--bg-ink #071412\n--bg-panel #0B1C19\n--gold #D8A84B\n--gold-soft #F3D48A\n--text-main #FFF2D2\n--text-muted #B7A982\nFonts: Playfair Display headings, Funnel Sans body, IBM Plex Mono captions.",
+          "lineHeight": 1.45,
+          "fontFamily": "IBM Plex Mono",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "XEyJU",
+          "name": "specComponents",
+          "fill": "#2C332F",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Components\n1. HeroPoster: logo, headline, subhead, trust badges, CTA stack.\n2. ServiceCard: icon, title, description.\n3. ProcessStep: number + concise action.\n4. LeadForm: messenger select, contact, topic, message.\n5. CTAFooter: Max, Telegram, application fallback.",
+          "lineHeight": 1.42,
+          "fontFamily": "Funnel Sans",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "VKtGm",
+          "name": "specAnim",
+          "fill": "#2C332F",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Animation\n- Hero: gold sweep across logo/headline on load, 900ms ease-out.\n- Cards: staggered reveal, translateY 18px to 0, opacity 0 to 1.\n- CTA: subtle gold glow pulse, disabled with prefers-reduced-motion.\n- Background: slow grain/parallax shimmer, no layout shift.\n- Form focus: gold border + soft shadow transition.",
+          "lineHeight": 1.42,
+          "fontFamily": "Funnel Sans",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "yeSjp",
+          "name": "specTailwind",
+          "fill": "#2C332F",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Tailwind rules\nUse CSS variables in :root for colors only. No inline styles. Build mobile layout first; desktop switches cards/process/form to grid/flex rows at lg. Use semantic anchors for Max/Telegram placeholders and a standard form submit action.",
+          "lineHeight": 1.42,
+          "fontFamily": "Funnel Sans",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "qZM9Y",
+          "name": "specA11y",
+          "fill": "#2C332F",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Accessibility\n- CTA labels explicit: Написать менеджеру в Max / Telegram.\n- Maintain contrast over dark background.\n- Form labels always visible.\n- No emoji flags as critical content.\n- Reduced motion fallback required.",
+          "lineHeight": 1.42,
+          "fontFamily": "Funnel Sans",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "z8gxMM",
+      "x": 1500,
+      "y": 1240,
+      "name": "Animation Storyboard / React Tailwind",
+      "width": 520,
+      "height": 860,
+      "fill": "#071412",
+      "cornerRadius": 24,
+      "stroke": {
+        "thickness": 1,
+        "fill": "$gold"
+      },
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 28,
+      "children": [
+        {
+          "type": "note",
+          "id": "CMqXe",
+          "name": "animNote",
+          "width": "fill_container",
+          "height": 640,
+          "content": "Animation storyboard\n\nGoal: premium, restrained motion. Guide attention without crypto-hype noise.\n\n01 Hero entrance: logo fade+scale 0.96 to 1, headline rises 14px, gold shimmer mask, 700-900ms ease-out.\n\n02 Service cards: scroll reveal with opacity 0 to 1, translateY 18px to 0, 90ms stagger.\n\n03 CTA attention: primary Max button has slow 3.2s glow pulse; hover/press scale 0.98 and brighter gold.\n\n04 Form focus: focused field border becomes bright gold with soft inner glow. Invalid state uses clear text, no shake.\n\n05 Accessibility: prefers-reduced-motion disables shimmer, pulse and parallax; keep simple opacity fade only."
+        },
+        {
+          "type": "text",
+          "id": "ibEtQ",
+          "name": "animTitle",
+          "fill": "$text-main",
+          "content": "Animation storyboard",
+          "fontFamily": "Funnel Sans",
+          "fontSize": 34,
+          "fontWeight": "900"
+        },
+        {
+          "type": "text",
+          "id": "u55aI",
+          "name": "animIntro",
+          "fill": "$text-muted",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Motion is premium but restrained: it should increase trust and guide attention, not feel like a casino or crypto hype page.",
+          "lineHeight": 1.35,
+          "fontFamily": "Funnel Sans",
+          "fontSize": 15,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "J2eHOi",
+          "name": "anim1",
+          "width": "fill_container",
+          "fill": "#0B211D",
+          "cornerRadius": 18,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#8D6B2E99"
+          },
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 18,
+          "children": [
+            {
+              "type": "text",
+              "id": "rIbWO",
+              "name": "anim1t",
+              "fill": "$gold-bright",
+              "content": "01 / Hero entrance",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "g0FkR",
+              "name": "anim1d",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Logo fades/scales from 0.96 to 1. Headline rises 14px with gold shimmer mask. Duration 700-900ms.",
+              "lineHeight": 1.35,
+              "fontFamily": "Funnel Sans",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "S8naM",
+          "name": "anim2",
+          "width": "fill_container",
+          "fill": "#0B211D",
+          "cornerRadius": 18,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#8D6B2E99"
+          },
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 18,
+          "children": [
+            {
+              "type": "text",
+              "id": "nDgel",
+              "name": "anim2t",
+              "fill": "$gold-bright",
+              "content": "02 / Service cards",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "kDpmK",
+              "name": "anim2d",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Cards reveal one by one on scroll: opacity 0 to 1, translateY 18px to 0, 90ms stagger.",
+              "lineHeight": 1.35,
+              "fontFamily": "Funnel Sans",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "w6ZYi",
+          "name": "anim3",
+          "width": "fill_container",
+          "fill": "#0B211D",
+          "cornerRadius": 18,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#8D6B2E99"
+          },
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 18,
+          "children": [
+            {
+              "type": "text",
+              "id": "jRt7P",
+              "name": "anim3t",
+              "fill": "$gold-bright",
+              "content": "03 / CTA attention",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "na7oR",
+              "name": "anim3d",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Primary Max button gets slow 3.2s glow pulse. Hover/press: scale 0.98, brighter gold, no layout shift.",
+              "lineHeight": 1.35,
+              "fontFamily": "Funnel Sans",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DMzC4",
+          "name": "anim4",
+          "width": "fill_container",
+          "fill": "#0B211D",
+          "cornerRadius": 18,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#8D6B2E99"
+          },
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 18,
+          "children": [
+            {
+              "type": "text",
+              "id": "x6MoQ",
+              "name": "anim4t",
+              "fill": "$gold-bright",
+              "content": "04 / Form focus",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "FIOht",
+              "name": "anim4d",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Focused fields switch border to bright gold and add soft inner glow. Invalid fields use clear text, not shake.",
+              "lineHeight": 1.35,
+              "fontFamily": "Funnel Sans",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "u2zhaK",
+          "name": "anim5",
+          "width": "fill_container",
+          "fill": "#0B211D",
+          "cornerRadius": 18,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#8D6B2E99"
+          },
+          "layout": "vertical",
+          "gap": 8,
+          "padding": 18,
+          "children": [
+            {
+              "type": "text",
+              "id": "JVG0r",
+              "name": "anim5t",
+              "fill": "$gold-bright",
+              "content": "05 / Accessibility",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "800"
+            },
+            {
+              "type": "text",
+              "id": "szgfG",
+              "name": "anim5d",
+              "fill": "$text-main",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "prefers-reduced-motion disables shimmer, pulse and parallax; keeps simple opacity fade only.",
+              "lineHeight": 1.35,
+              "fontFamily": "Funnel Sans",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg-card": {
+      "type": "color",
+      "value": "#102A25"
+    },
+    "bg-ink": {
+      "type": "color",
+      "value": "#071412"
+    },
+    "bg-panel": {
+      "type": "color",
+      "value": "#0B1C19"
+    },
+    "danger-red": {
+      "type": "color",
+      "value": "#C51F2F"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Funnel Sans"
+    },
+    "font-caption": {
+      "type": "string",
+      "value": "IBM Plex Mono"
+    },
+    "font-heading": {
+      "type": "string",
+      "value": "Playfair Display"
+    },
+    "gold": {
+      "type": "color",
+      "value": "#D8A84B"
+    },
+    "gold-bright": {
+      "type": "color",
+      "value": "#FFE7A1"
+    },
+    "gold-soft": {
+      "type": "color",
+      "value": "#F3D48A"
+    },
+    "green-deep": {
+      "type": "color",
+      "value": "#0A302A"
+    },
+    "line-gold": {
+      "type": "color",
+      "value": "#8D6B2E"
+    },
+    "radius-card": {
+      "type": "number",
+      "value": 28
+    },
+    "radius-pill": {
+      "type": "number",
+      "value": 999
+    },
+    "space-section": {
+      "type": "number",
+      "value": 96
+    },
+    "text-main": {
+      "type": "color",
+      "value": "#FFF2D2"
+    },
+    "text-muted": {
+      "type": "color",
+      "value": "#B7A982"
+    }
+  }
+}
