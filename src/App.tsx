@@ -9,6 +9,7 @@ const reviewsLink = "https://t.me/+Rw2BRymXRnk1ZGUy";
 const instagramLink = "https://www.instagram.com/antex.change";
 const vkLink = "https://vk.ru/antex.finance";
 const threadsLink = "https://www.threads.com/@antex.change?igshid=NTc4MTIwNjQ2YQ==";
+const logoUrl = `${import.meta.env.BASE_URL}logo.PNG`;
 
 type ServiceIconName = "payments" | "local_taxi" | "credit_card" | "task_alt" | "home" | "attach_money";
 
@@ -59,36 +60,19 @@ const steps = [
 const faqs = [
   {
     question: "Нужно ли вносить предоплату?",
-    answer: "В промо-материалах AntEx заявлено: без предоплаты. Детали менеджер уточнит по вашей задаче.",
+    answer: "Без предоплаты. Детали менеджер уточнит по вашей задаче.",
   },
   {
     question: "Какие страны доступны?",
-    answer: "Таиланд, Вьетнам и Грузия — по данным текущего оффера.",
+    answer: "Таиланд, Вьетнам и Грузия",
   },
 ];
 
 function LogoMark() {
-  const [imageFailed, setImageFailed] = useState(false);
-
-  if (!imageFailed) {
-    return (
-      <img
-        src="/logo.PNG"
-        alt="AntEx"
-        className="h-32 w-36 rounded-[28px] object-cover shadow-gold sm:h-48 sm:w-56"
-        onError={() => setImageFailed(true)}
-      />
-    );
-  }
-
   return (
-    <div className="grid h-32 w-36 place-items-center rounded-[28px] border border-gold/70 bg-[#0A302A] shadow-gold sm:h-48 sm:w-56">
-      <div className="text-center">
-        <div className="mx-auto mb-3 grid h-16 w-16 place-items-center rounded-2xl border border-gold/70 text-3xl font-black text-gold-bright">
-          AE
-        </div>
-        <div className="font-heading text-3xl font-bold text-gold-bright">AntEx</div>
-      </div>
+    <div className="logo-mark">
+      <div className="logo-mark__glow" aria-hidden="true" />
+      <img className="logo-mark__image" src={logoUrl} alt="AntEx" />
     </div>
   );
 }
@@ -112,16 +96,29 @@ function Hero() {
       <div className="hero-glow" aria-hidden="true" />
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
         <LogoMark />
-        <p className="mt-8 w-full max-w-4xl font-mono text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft sm:text-base">
-          AntEx • финансовый сервис для путешествий и релокации
+        <p className="mt-8 w-full max-w-[25rem] font-mono text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft sm:max-w-4xl sm:text-base">
+          <span className="sm:hidden">ANTEX • TH • VN • GE</span>
+          <span className="hidden sm:inline">AntEx • финансовый сервис для путешествий и релокации</span>
         </p>
         <h1 className="mt-7 w-full max-w-5xl font-heading text-[38px] font-bold leading-[1.04] text-main sm:text-6xl sm:leading-[1.03] lg:text-[76px]">
-          <span className="sm:hidden">Бесплатно разберём вашу задачу за границей</span>
+          <span className="sm:hidden">
+            Бесплатно разберём
+            <br />
+            вашу задачу за
+            <br />
+            границей
+          </span>
           <span className="hidden sm:inline">Бесплатно разберем вашу задачу по деньгам, поездке или релокации</span>
         </h1>
-        <p className="mt-6 w-full max-w-3xl text-base leading-8 text-muted sm:text-xl">
+        <p className="mt-6 w-full max-w-[24rem] text-base leading-8 text-muted sm:max-w-3xl sm:text-xl">
           <span className="sm:hidden">
-            Обмен RUB/USDT, наличные, бронирования и аренда жилья в Таиланде, Вьетнаме и Грузии - без предоплаты.
+            Обмен RUB/USDT, наличные,
+            <br />
+            бронирования и аренда жилья в
+            <br />
+            Таиланде, Вьетнаме и Грузии - без
+            <br />
+            предоплаты.
           </span>
           <span className="hidden sm:inline">
             Обмен RUB/USDT на местную валюту, доставка наличных, бронирования и аренда жилья в Таиланде, Вьетнаме и
@@ -311,7 +308,7 @@ function LeadForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "fallback" | "error">("idle");
 
   const leadText = useMemo(() => {
-    return [`Заявка с лендинга AntEx`, `Мессенджер: ${messenger}`, `Контакт: ${contact}`, `Тема: ${topic}`, `Сообщение: ${message}`]
+    return [`Заявка с лендинга AntEx`, `Мессенджер для обратной связи: ${messenger}`, `Контакт: ${contact}`, `Тема: ${topic}`, `Сообщение: ${message}`]
       .filter(Boolean)
       .join("\n");
   }, [contact, message, messenger, topic]);
@@ -362,7 +359,7 @@ function LeadForm() {
 
         <form className="form-card" onSubmit={submit}>
           <label>
-            <span>Мессенджер</span>
+            <span>Мессенджер для обратной связи</span>
             <MessengerSelect value={messenger} onChange={setMessenger} />
           </label>
           <label>
