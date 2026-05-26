@@ -1,4 +1,6 @@
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, KeyboardEvent, useId, useMemo, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { cardHover, fadeIn, fadeUp, staggerContainer, tapScale, viewportOnce } from "./motion";
 
 const maxLink = "https://max.ru/u/f9LHodD0cOJldnxoo8T-CJxSYCOJHc6iRrlAGZiUJLMLr0ZdJMj1yUfpBmg";
 const telegramManagerLink = "https://t.me/m/ntagYZyVZjVl";
@@ -11,9 +13,9 @@ const vkLink = "https://vk.ru/antex.finance";
 const threadsLink = "https://www.threads.com/@antex.change?igshid=NTc4MTIwNjQ2YQ==";
 const logoUrl = `${import.meta.env.BASE_URL}logo.PNG`;
 
-type ServiceIconName = "payments" | "local_taxi" | "credit_card" | "task_alt" | "home" | "attach_money";
-
+type ServiceIconName = "credit_card" | "task_alt" | "home" | "attach_money";
 type ServiceMarkerModel = { type: "text"; value: string } | { type: "icons"; value: ServiceIconName[] };
+type LeadStatus = "idle" | "sending" | "sent" | "fallback" | "error";
 
 type Service = {
   marker: ServiceMarkerModel;
@@ -21,6 +23,7 @@ type Service = {
   mobileTitle?: string;
   text: string;
   mobileText?: string;
+  proof: string;
 };
 
 const services: Service[] = [
@@ -29,12 +32,14 @@ const services: Service[] = [
     title: "RUB → местная валюта",
     text: "Помогаем согласовать обмен рублей на местную валюту под страну, город, сумму и удобный способ получения.",
     mobileText: "Согласуем обмен рублей на местную валюту под страну, город и сумму.",
+    proof: "Таиланд, Вьетнам, Грузия",
   },
   {
     marker: { type: "text", value: "USDT" },
     title: "USDT → наличные",
     text: "Подбираем понятный маршрут, если нужно получить наличные за границей после согласования условий с менеджером.",
     mobileText: "Маршрут для получения наличных за границей после согласования условий.",
+    proof: "Порядок и сроки до сделки",
   },
   {
     marker: { type: "icons", value: ["credit_card", "task_alt"] },
@@ -42,6 +47,7 @@ const services: Service[] = [
     mobileTitle: "Оплата броней",
     text: "Помогаем разобраться с оплатой отелей, авиабилетов, Booking, Agoda, Airbnb и других сервисов для поездки.",
     mobileText: "Отели, авиабилеты, Booking, Agoda, Airbnb и сервисы для поездки.",
+    proof: "Сначала уточнение сервиса",
   },
   {
     marker: { type: "icons", value: ["home", "attach_money"] },
@@ -49,13 +55,23 @@ const services: Service[] = [
     mobileTitle: "Аренда и платежи",
     text: "Поддержка с арендой жилья, депозитами и бытовыми платежами, когда нужен понятный порядок действий за границей.",
     mobileText: "Аренда, депозиты и бытовые платежи за границей.",
+    proof: "Без предоплаты",
   },
 ];
 
 const steps = [
-  "Оставьте заявку или напишите в Max/Telegram",
-  "Менеджер уточнит страну, город, сумму и сроки",
-  "Согласуйте условия до сделки",
+  {
+    title: "Оставьте заявку или напишите в Max/Telegram",
+    text: "Коротко опишите страну, сумму, город и задачу. Можно сразу перейти в мессенджер.",
+  },
+  {
+    title: "Менеджер уточнит страну, город, сумму и сроки",
+    text: "На этом шаге согласуется маршрут, доступность направления и удобный формат получения.",
+  },
+  {
+    title: "Согласуйте условия до сделки",
+    text: "Вы принимаете решение только после понятного разбора курса, порядка и сроков.",
+  },
 ];
 
 const faqs = [
@@ -83,22 +99,6 @@ const faqs = [
     question: "Помогаете ли с оплатой бронирований?",
     answer: "Да, можно обсудить отели, авиабилеты, Booking, Agoda, Airbnb и другие сервисы для поездки.",
   },
-  {
-    question: "Можно ли оплатить аренду или депозит?",
-    answer: "Да, AntEx помогает согласовать такие задачи, если направление и условия доступны для вашей ситуации.",
-  },
-  {
-    question: "Когда я узнаю курс и условия?",
-    answer: "До сделки. Менеджер уточнит вводные и согласует с вами курс, порядок, сроки и доступный маршрут.",
-  },
-  {
-    question: "Где посмотреть отзывы и каналы?",
-    answer: "Ссылки на отзывы, новости и открытые каналы размещены ниже, рядом с кнопками связи.",
-  },
-  {
-    question: "Что именно делает AntEx?",
-    answer: "AntEx помогает согласовать задачу и условия через менеджера. Доступность, порядок и сроки зависят от направления.",
-  },
 ];
 
 const problemCards = [
@@ -123,11 +123,43 @@ const trustItems = [
   "Отзывы, новости и открытые каналы доступны до обращения",
 ];
 
-function LogoMark() {
+const socialLinks = [
+  { label: "Отзывы", href: reviewsLink },
+  { label: "Новости", href: telegramNewsLink },
+  { label: "Instagram", href: instagramLink },
+  { label: "VK", href: vkLink },
+  { label: "Max", href: maxLink },
+  { label: "Threads", href: threadsLink },
+];
+
+function LogoMark({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="logo-mark">
+    <div className={compact ? "logo-mark logo-mark--compact" : "logo-mark"}>
       <div className="logo-mark__glow" aria-hidden="true" />
       <img className="logo-mark__image" src={logoUrl} alt="AntEx" />
+    </div>
+  );
+}
+
+function StickyHeader() {
+  return (
+    <div className="sticky-header">
+      <a className="sticky-header__brand" href="#top" aria-label="AntEx - к началу страницы">
+        <LogoMark compact />
+        <span>AntEx</span>
+      </a>
+      <nav className="sticky-header__nav" aria-label="Навигация по странице">
+        <a href="#services">Услуги</a>
+        <a href="#process">Как работаем</a>
+        <a href="#lead">Заявка</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a className="sticky-header__cta sticky-header__cta--desktop" href={maxLink} target="_blank" rel="noreferrer">
+        Max
+      </a>
+      <a className="sticky-header__cta sticky-header__cta--mobile" href="#lead">
+        Связаться
+      </a>
     </div>
   );
 }
@@ -135,69 +167,105 @@ function LogoMark() {
 function CtaLinks({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`flex w-full flex-col gap-3 ${compact ? "sm:flex-row sm:justify-center" : "sm:flex-row"}`}>
-      <a className="button-primary" href={maxLink} target="_blank" rel="noreferrer">
+      <motion.a className="button-primary" href={maxLink} target="_blank" rel="noreferrer" whileTap={tapScale}>
         Написать в Max
-      </a>
-      <a className="button-secondary" href={telegramManagerLink} target="_blank" rel="noreferrer">
+      </motion.a>
+      <motion.a className="button-secondary" href={telegramManagerLink} target="_blank" rel="noreferrer" whileTap={tapScale}>
         Написать в Telegram
-      </a>
+      </motion.a>
     </div>
   );
 }
 
-function Hero() {
+function RouteCard() {
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 0.28], [0, -26]);
+
   return (
-    <header className="relative overflow-hidden px-5 pb-16 pt-8 sm:px-8 lg:px-12 lg:pb-24 lg:pt-16">
-      <div className="hero-glow" aria-hidden="true" />
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-        <LogoMark />
-        <p className="mt-8 w-full max-w-[25rem] font-mono text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft sm:max-w-4xl sm:text-base">
-          <span className="sm:hidden">ANTEX • TH • VN • GE</span>
-          <span className="hidden sm:inline">AntEx • Таиланд, Вьетнам, Грузия</span>
-        </p>
-        <h1 className="mt-7 w-full max-w-5xl font-heading text-[38px] font-bold leading-[1.04] text-main sm:text-6xl sm:leading-[1.03] lg:text-[76px]">
-          <span className="sm:hidden">
-            RUB/USDT,
-            <br />
-            наличные и
-            <br />
-            оплаты за границей
-          </span>
-          <span className="hidden sm:inline">RUB/USDT, наличные и оплаты за границей через менеджера</span>
-        </h1>
-        <p className="mt-6 w-full max-w-[24rem] text-base leading-8 text-muted sm:max-w-3xl sm:text-xl">
-          <span className="sm:hidden">
-            Таиланд, Вьетнам, Грузия.
-            <br />
-            Обмен, наличные, брони и аренда -
-            <br />
-            без предоплаты, через менеджера,
-            <br />
-            в Max или Telegram.
-          </span>
-          <span className="hidden sm:inline">
-            Помогаем согласовать обмен RUB/USDT на местную валюту, получение наличных, бронирования, аренду и бытовые
-            платежи в Таиланде, Вьетнаме и Грузии. Без предоплаты. Через менеджера. В Max или Telegram.
-          </span>
-        </p>
+    <motion.aside className="route-card" style={{ y: reduceMotion ? 0 : y }} variants={fadeUp}>
+      <div className="route-card__header">
+        <span>Маршруты</span>
+        <strong>RUB / USDT</strong>
+      </div>
+      <div className="route-card__flow" aria-label="RUB и USDT в THB, VND и GEL">
+        <span>RUB</span>
+        <span>USDT</span>
+        <i aria-hidden="true">→</i>
+        <span>THB</span>
+        <span>VND</span>
+        <span>GEL</span>
+      </div>
+      <div className="route-card__chips" aria-label="Страны">
+        <span>Таиланд</span>
+        <span>Вьетнам</span>
+        <span>Грузия</span>
+      </div>
+      <div className="route-card__footer">
+        <span>Без предоплаты</span>
+        <span>Менеджер подберет маршрут</span>
+      </div>
+    </motion.aside>
+  );
+}
 
-        <p className="mt-5 w-full max-w-3xl text-sm font-bold leading-6 text-gold-soft sm:text-base">
-          Сначала уточняем задачу, маршрут и условия. Вы соглашаетесь только после понятного разбора.
-        </p>
+function Hero() {
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const layerY = useTransform(scrollYProgress, [0, 0.24], [0, 42]);
 
-        <div className="mt-8 grid w-full max-w-3xl gap-3 sm:grid-cols-3">
-          <TrustBadge>Без предоплаты</TrustBadge>
-          <TrustBadge>Через менеджера</TrustBadge>
-          <TrustBadge>Max или Telegram</TrustBadge>
-        </div>
-
-        <div className="mt-8 w-full max-w-2xl">
-          <CtaLinks />
-        </div>
-
-        <p className="mt-7 rounded-full border border-gold/40 px-5 py-3 font-heading text-xl font-bold text-main sm:text-2xl">
-          Таиланд • Вьетнам • Грузия
-        </p>
+  return (
+    <header id="top" className="hero-shell">
+      <motion.div className="hero-glow" style={{ y: reduceMotion ? 0 : layerY }} aria-hidden="true" />
+      <div className="hero-grid">
+        <motion.div className="hero-copy" variants={staggerContainer} initial="hidden" animate="visible">
+          <motion.div variants={fadeIn}>
+            <LogoMark />
+          </motion.div>
+          <motion.p className="hero-kicker" variants={fadeUp}>
+            <span className="sm:hidden">ANTEX • TH • VN • GE</span>
+            <span className="hidden sm:inline">AntEx • Таиланд, Вьетнам, Грузия</span>
+          </motion.p>
+          <motion.h1 className="hero-title" variants={fadeUp}>
+            <span className="sm:hidden">
+              RUB/USDT,
+              <br />
+              наличные и оплаты
+              <br />
+              за границей
+            </span>
+            <span className="hidden sm:inline">
+              RUB/USDT, наличные и <span className="gold-gradient">оплаты за границей</span> через менеджера
+            </span>
+          </motion.h1>
+          <motion.p className="hero-text" variants={fadeUp}>
+            <span className="sm:hidden">
+              Таиланд, Вьетнам, Грузия.
+              <br />
+              Обмен, наличные, брони и аренда -
+              <br />
+              без предоплаты, через менеджера.
+            </span>
+            <span className="hidden sm:inline">
+              Обмен RUB/USDT на местную валюту, наличные, бронирования, аренда и бытовые платежи в Таиланде, Вьетнаме
+              и Грузии. Без предоплаты. Через менеджера. В Max или Telegram.
+            </span>
+          </motion.p>
+          <motion.p className="hero-proof" variants={fadeUp}>
+            Сначала уточняем задачу, маршрут и условия. Вы соглашаетесь только после понятного разбора.
+          </motion.p>
+          <motion.div className="mt-8 w-full max-w-2xl" variants={fadeUp}>
+            <CtaLinks />
+          </motion.div>
+          <motion.div className="hero-badges" variants={fadeUp}>
+            <TrustBadge>Без предоплаты</TrustBadge>
+            <TrustBadge>Через менеджера</TrustBadge>
+            <TrustBadge>Max или Telegram</TrustBadge>
+          </motion.div>
+        </motion.div>
+        <motion.div className="hero-route" variants={fadeUp} initial="hidden" animate="visible">
+          <RouteCard />
+        </motion.div>
       </div>
     </header>
   );
@@ -206,7 +274,7 @@ function Hero() {
 function ProblemSection() {
   return (
     <section className="section-shell pt-0">
-      <div>
+      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
         <SectionIntro
           title="За границей финансовые задачи быстро становятся бытовыми"
           mobileTitle="За границей все сложнее"
@@ -215,32 +283,34 @@ function ProblemSection() {
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {problemCards.map((item) => (
-            <article className="info-card" key={item.title}>
+            <motion.article className="info-card premium-card" key={item.title} variants={fadeUp} whileHover={cardHover}>
               <h3 className="text-xl font-bold leading-snug text-main">{item.title}</h3>
               <p className="mt-4 text-sm leading-6 text-muted sm:text-base">{item.text}</p>
-            </article>
+            </motion.article>
           ))}
         </div>
-        <p className="mx-auto mt-8 max-w-3xl text-center text-base font-bold leading-7 text-gold-soft sm:text-lg">
+        <motion.p className="mx-auto mt-8 max-w-3xl text-center text-base font-bold leading-7 text-gold-soft sm:text-lg" variants={fadeUp}>
           AntEx помогает разложить задачу по шагам и согласовать условия до того, как вы принимаете решение.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </section>
   );
 }
 
 function TrustBadge({ children }: { children: string }) {
   return (
-    <div className="trust-badge flex items-center justify-center gap-3 border border-gold/60 bg-[#091A17]/80 px-5 py-4 text-main shadow-panel">
-      <span className="grid h-7 w-7 place-items-center rounded-full bg-gold text-sm font-black text-[#071412]">✓</span>
-      <span className="font-body text-base font-extrabold">{children}</span>
+    <div className="trust-badge">
+      <span className="trust-badge__icon" aria-hidden="true">
+        ✓
+      </span>
+      <span>{children}</span>
     </div>
   );
 }
 
 function SectionIntro({ title, text, mobileTitle, mobileText }: { title: string; text: string; mobileTitle?: string; mobileText?: string }) {
   return (
-    <div className="mx-auto w-full max-w-3xl text-center">
+    <motion.div className="mx-auto w-full max-w-3xl text-center" variants={fadeUp}>
       <h2 className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl">
         <span className={mobileTitle ? "sm:hidden" : undefined}>{mobileTitle ?? title}</span>
         {mobileTitle && <span className="hidden sm:inline">{title}</span>}
@@ -249,34 +319,37 @@ function SectionIntro({ title, text, mobileTitle, mobileText }: { title: string;
         <span className={mobileText ? "sm:hidden" : undefined}>{mobileText ?? text}</span>
         {mobileText && <span className="hidden sm:inline">{text}</span>}
       </p>
-    </div>
+    </motion.div>
   );
 }
 
 function Services() {
   return (
-    <section className="section-shell">
-      <SectionIntro
-        title="Что можно решить через AntEx"
-        mobileTitle="Что решаем"
-        text="Один вход - несколько финансовых и бытовых задач для поездки, переезда или жизни за границей."
-        mobileText="Коротко опишите ситуацию - менеджер предложит понятный маршрут решения."
-      />
-      <div className="mt-10 grid gap-5 lg:grid-cols-2">
-        {services.map((service, index) => (
-          <article className="reveal-card service-card" key={service.title} style={{ animationDelay: `${index * 90}ms` }}>
-            <ServiceMarker marker={service.marker} />
-            <h3 className="service-card-title">
-              <span className={service.mobileTitle ? "sm:hidden" : undefined}>{service.mobileTitle ?? service.title}</span>
-              {service.mobileTitle && <span className="hidden sm:inline">{service.title}</span>}
-            </h3>
-            <p className="service-card-text">
-              <span className={service.mobileText ? "sm:hidden" : undefined}>{service.mobileText ?? service.text}</span>
-              {service.mobileText && <span className="hidden sm:inline">{service.text}</span>}
-            </p>
-          </article>
-        ))}
-      </div>
+    <section className="section-shell" id="services">
+      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+        <SectionIntro
+          title="Что можно решить через AntEx"
+          mobileTitle="Что решаем"
+          text="Один вход - несколько финансовых и бытовых задач для поездки, переезда или жизни за границей."
+          mobileText="Коротко опишите ситуацию - менеджер предложит понятный маршрут решения."
+        />
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <motion.article className="service-card premium-card" key={service.title} variants={fadeUp} whileHover={cardHover}>
+              <ServiceMarker marker={service.marker} />
+              <h3 className="service-card-title">
+                <span className={service.mobileTitle ? "sm:hidden" : undefined}>{service.mobileTitle ?? service.title}</span>
+                {service.mobileTitle && <span className="hidden sm:inline">{service.title}</span>}
+              </h3>
+              <p className="service-card-text">
+                <span className={service.mobileText ? "sm:hidden" : undefined}>{service.mobileText ?? service.text}</span>
+                {service.mobileText && <span className="hidden sm:inline">{service.text}</span>}
+              </p>
+              <p className="service-proof">{String(index + 1).padStart(2, "0")} • {service.proof}</p>
+            </motion.article>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
@@ -302,28 +375,6 @@ function ServiceIcon({ icon }: { icon: ServiceIconName }) {
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
   };
-
-  if (icon === "payments") {
-    return (
-      <svg {...commonProps}>
-        <rect x="7" y="13" width="34" height="23" rx="4" stroke="currentColor" strokeWidth="3" />
-        <path d="M7 20h34" stroke="currentColor" strokeWidth="3" />
-        <path d="M14 29h10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  if (icon === "local_taxi") {
-    return (
-      <svg {...commonProps}>
-        <path d="M14 22l4-9h12l4 9" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
-        <path d="M11 22h26l4 7v8h-5l-2-4H14l-2 4H7v-8l4-7z" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
-        <path d="M18 13h12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-        <circle cx="16" cy="29" r="2.5" fill="currentColor" />
-        <circle cx="32" cy="29" r="2.5" fill="currentColor" />
-      </svg>
-    );
-  }
 
   if (icon === "credit_card") {
     return (
@@ -369,43 +420,57 @@ function ServiceIcon({ icon }: { icon: ServiceIconName }) {
 
 function Process() {
   return (
-    <section className="section-shell bg-[#081815]/70">
-      <SectionIntro
-        title="Как проходит согласование"
-        text="Три шага до понятных условий: сначала обращение, затем уточнение деталей, потом решение без давления и предоплаты."
-      />
-      <div className="mt-10 grid gap-5 lg:grid-cols-3">
-        {steps.map((step, index) => (
-          <article className="step-card" key={step}>
-            <p className="font-mono text-sm font-extrabold text-gold-bright">{String(index + 1).padStart(2, "0")}</p>
-            <h3 className="mt-6 text-xl font-bold leading-snug text-main sm:text-2xl">{step}</h3>
-          </article>
-        ))}
-      </div>
+    <section className="section-shell process-section" id="process">
+      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+        <SectionIntro
+          title="Как проходит согласование"
+          text="Три шага до понятных условий: сначала обращение, затем уточнение деталей, потом решение без давления и предоплаты."
+        />
+        <div className="process-timeline">
+          {steps.map((step, index) => (
+            <motion.article className="step-card premium-card" key={step.title} variants={fadeUp}>
+              <p className="step-card__number">{String(index + 1).padStart(2, "0")}</p>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </motion.article>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
 
 function TrustSection() {
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const glowY = useTransform(scrollYProgress, [0.3, 0.72], [22, -24]);
+
   return (
-    <section className="section-shell bg-[#081815]/70">
-      <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-        <div>
+    <section className="section-shell trust-section">
+      <motion.div className="trust-section__glow" style={{ y: reduceMotion ? 0 : glowY }} aria-hidden="true" />
+      <motion.div className="trust-layout" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+        <motion.div variants={fadeUp}>
+          <p className="section-eyebrow">Доверие до обращения</p>
           <h2 className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl">Почему обращаются в AntEx</h2>
           <p className="mt-5 text-base leading-8 text-muted sm:text-lg">
             Здесь не нужно угадывать маршрут самому. Менеджер уточняет вводные, объясняет порядок и согласует условия до
             сделки.
           </p>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
+          <a className="trust-section__reviews" href={reviewsLink} target="_blank" rel="noreferrer">
+            Смотреть Telegram-отзывы
+          </a>
+        </motion.div>
+        <div className="trust-points">
           {trustItems.map((item) => (
-            <div className="trust-point" key={item}>
-              <span className="trust-point__icon" aria-hidden="true">✓</span>
+            <motion.div className="trust-point premium-card" key={item} variants={fadeUp}>
+              <span className="trust-point__icon" aria-hidden="true">
+                ✓
+              </span>
               <span>{item}</span>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -415,7 +480,7 @@ function LeadForm() {
   const [contact, setContact] = useState("");
   const [topic, setTopic] = useState("Обмен");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "fallback" | "error">("idle");
+  const [status, setStatus] = useState<LeadStatus>("idle");
 
   const leadText = useMemo(() => {
     return [`Заявка с лендинга AntEx`, `Мессенджер для обратной связи: ${messenger}`, `Контакт: ${contact}`, `Тема: ${topic}`, `Сообщение: ${message}`]
@@ -455,9 +520,10 @@ function LeadForm() {
   }
 
   return (
-    <section className="section-shell">
-      <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-        <div>
+    <section className="section-shell" id="lead">
+      <motion.div className="lead-layout" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+        <motion.div variants={fadeUp}>
+          <p className="section-eyebrow">Заявка</p>
           <h2 className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl">Оставьте заявку или напишите напрямую</h2>
           <p className="mt-5 text-base leading-8 text-muted sm:text-lg">
             Форма нужна для тех, кто хочет заранее описать задачу. Для быстрых вопросов - кнопки Max и Telegram.
@@ -465,29 +531,20 @@ function LeadForm() {
           <div className="mt-8">
             <CtaLinks />
           </div>
-        </div>
+        </motion.div>
 
-        <form className="form-card" onSubmit={submit}>
+        <motion.form className="form-card premium-card" onSubmit={submit} variants={fadeUp}>
           <label>
             <span>Мессенджер для обратной связи</span>
             <MessengerSelect value={messenger} onChange={setMessenger} />
           </label>
           <label>
             <span>Контакт</span>
-            <input
-              required
-              value={contact}
-              onChange={(event) => setContact(event.target.value)}
-              placeholder="@username или номер"
-            />
+            <input required value={contact} onChange={(event) => setContact(event.target.value)} placeholder="@username или номер" />
           </label>
           <label>
             <span>Тема</span>
-            <input
-              value={topic}
-              onChange={(event) => setTopic(event.target.value)}
-              placeholder="Например: обмен, наличные, бронь или аренда"
-            />
+            <input value={topic} onChange={(event) => setTopic(event.target.value)} placeholder="Например: обмен, наличные, бронь или аренда" />
           </label>
           <label>
             <span>Сообщение</span>
@@ -498,24 +555,34 @@ function LeadForm() {
               placeholder="Коротко опишите страну, сумму, город и сроки"
               rows={5}
             />
+            <small>Чем конкретнее вводные, тем быстрее менеджер проверит доступный маршрут.</small>
           </label>
-          <button className="button-primary" type="submit">
-            {status === "sending" ? "Отправляем..." : "Отправить заявку"}
-          </button>
-          <p className="min-h-6 text-sm leading-6 text-muted" role="status" aria-live="polite">
-            {status === "sent" && "Заявка отправлена. Менеджер свяжется с вами в выбранном мессенджере."}
-            {status === "fallback" && "Открыли Telegram-бота. Текст заявки скопирован, отправьте его боту."}
-            {status === "error" && "Не удалось отправить заявку. Напишите менеджеру в Max или Telegram."}
-          </p>
-        </form>
-      </div>
+          <motion.button className="button-primary" type="submit" disabled={status === "sending"} whileTap={tapScale}>
+            {status === "sending" ? (
+              <span className="sending-label">
+                Отправляем<span aria-hidden="true" />
+              </span>
+            ) : (
+              "Отправить заявку"
+            )}
+          </motion.button>
+          <AnimatedStatus status={status} />
+        </motion.form>
+      </motion.div>
     </section>
   );
 }
 
 function MessengerSelect({ value, onChange }: { value: string; onChange: (value: string) => void }) {
   const [isOpen, setIsOpen] = useState(false);
+  const listId = useId();
   const options = ["Max", "Telegram"];
+
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key === "Escape") {
+      setIsOpen(false);
+    }
+  }
 
   return (
     <div
@@ -525,8 +592,10 @@ function MessengerSelect({ value, onChange }: { value: string; onChange: (value:
           setIsOpen(false);
         }
       }}
+      onKeyDown={handleKeyDown}
     >
       <button
+        aria-controls={listId}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         className="custom-select-trigger"
@@ -534,35 +603,124 @@ function MessengerSelect({ value, onChange }: { value: string; onChange: (value:
         type="button"
       >
         <span>{value}</span>
-        <span className="custom-select-chevron" aria-hidden="true">⌄</span>
+        <span className="custom-select-chevron" aria-hidden="true">
+          ⌄
+        </span>
       </button>
-      {isOpen && (
-        <div className="custom-select-menu" role="listbox" aria-label="Мессенджер">
-          {options.map((option) => (
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            className="custom-select-menu"
+            exit={{ opacity: 0, y: -6, scale: 0.98 }}
+            id={listId}
+            initial={{ opacity: 0, y: -6, scale: 0.98 }}
+            role="listbox"
+            aria-label="Мессенджер"
+            transition={{ duration: 0.18 }}
+          >
+            {options.map((option) => (
+              <button
+                aria-selected={value === option}
+                className="custom-select-option"
+                key={option}
+                onClick={() => {
+                  onChange(option);
+                  setIsOpen(false);
+                }}
+                role="option"
+                type="button"
+              >
+                {option}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function AnimatedStatus({ status }: { status: LeadStatus }) {
+  if (status === "idle") {
+    return <p className="status-block status-block--idle" aria-live="polite" />;
+  }
+
+  const copy: Record<Exclude<LeadStatus, "idle">, string> = {
+    sending: "Отправляем заявку менеджеру.",
+    sent: "Заявка отправлена. Менеджер свяжется с вами в выбранном мессенджере.",
+    fallback: "Открыли Telegram-бота. Текст заявки скопирован, отправьте его боту.",
+    error: "Не удалось отправить заявку. Напишите менеджеру в Max или Telegram.",
+  };
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.p
+        animate={{ opacity: 1, y: 0 }}
+        aria-live="polite"
+        className={`status-block status-block--${status}`}
+        exit={{ opacity: 0, y: -6 }}
+        initial={{ opacity: 0, y: 8 }}
+        key={status}
+        role="status"
+      >
+        {copy[status]}
+      </motion.p>
+    </AnimatePresence>
+  );
+}
+
+function FaqAccordion() {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  return (
+    <div className="faq-accordion" id="faq">
+      {faqs.map((faq, index) => {
+        const isOpen = openIndex === index;
+        const panelId = `faq-panel-${index}`;
+
+        return (
+          <div className="faq-item" key={faq.question}>
             <button
-              aria-selected={value === option}
-              className="custom-select-option"
-              key={option}
-              onClick={() => {
-                onChange(option);
-                setIsOpen(false);
-              }}
-              role="option"
+              aria-controls={panelId}
+              aria-expanded={isOpen}
+              className="faq-trigger"
+              onClick={() => setOpenIndex(isOpen ? -1 : index)}
               type="button"
             >
-              {option}
+              <span>{faq.question}</span>
+              <span aria-hidden="true">+</span>
             </button>
-          ))}
-        </div>
-      )}
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  animate={{ height: "auto", opacity: 1 }}
+                  className="faq-panel"
+                  exit={{ height: 0, opacity: 0 }}
+                  id={panelId}
+                  initial={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.22 }}
+                >
+                  <p>{faq.answer}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
     </div>
   );
 }
 
 function FinalCta() {
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const lightY = useTransform(scrollYProgress, [0.66, 1], [20, -34]);
+
   return (
-    <section className="section-shell pb-16 lg:pb-24">
-      <div className="rounded-[28px] border border-gold/40 bg-[#0A201C]/80 p-6 text-center shadow-panel sm:p-10 lg:p-14">
+    <section className="section-shell final-section pb-16 lg:pb-24">
+      <motion.div className="final-panel" initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewportOnce}>
+        <motion.div className="final-panel__light" style={{ y: reduceMotion ? 0 : lightY }} aria-hidden="true" />
         <h2 className="font-heading text-3xl font-bold text-main sm:text-5xl">Нужно решить финансовый вопрос за границей?</h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
           Напишите в Max или Telegram. Без предоплаты. Сначала согласование условий.
@@ -572,29 +730,20 @@ function FinalCta() {
         </div>
 
         <h3 className="mt-12 font-heading text-2xl font-bold text-main sm:text-3xl">FAQ</h3>
-        <div className="mt-10 grid gap-4 text-left md:grid-cols-2">
-          {faqs.map((faq) => (
-            <article className="faq-card" key={faq.question}>
-              <h3 className="text-lg font-black text-main">{faq.question}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted">{faq.answer}</p>
-            </article>
-          ))}
-        </div>
+        <FaqAccordion />
 
-        <nav className="mt-9 flex flex-wrap justify-center gap-x-5 gap-y-3 text-sm font-bold text-gold-soft" aria-label="Социальные ссылки">
-          <a href={reviewsLink} target="_blank" rel="noreferrer">Отзывы</a>
-          <a href={telegramNewsLink} target="_blank" rel="noreferrer">Новости</a>
-          <a href={instagramLink} target="_blank" rel="noreferrer">Instagram</a>
-          <a href={vkLink} target="_blank" rel="noreferrer">VK</a>
-          <a href={maxLink} target="_blank" rel="noreferrer">Max</a>
-          <a href={threadsLink} target="_blank" rel="noreferrer">Threads</a>
+        <nav className="social-chips" aria-label="Социальные ссылки">
+          {socialLinks.map((link) => (
+            <a href={link.href} key={link.label} target="_blank" rel="noreferrer">
+              {link.label}
+            </a>
+          ))}
         </nav>
 
         <p className="mx-auto mt-8 max-w-4xl border-t border-gold/20 pt-6 text-xs leading-6 text-muted sm:text-sm">
-          AntEx помогает согласовать финансовые задачи за границей через менеджера. Условия, курс, доступность
-          направлений и сроки уточняются индивидуально до сделки.
+          Условия и доступность зависят от страны, города и суммы. Детали уточняет менеджер.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -602,12 +751,13 @@ function FinalCta() {
 export function App() {
   return (
     <main className="min-h-screen overflow-hidden bg-ink font-body text-main">
+      <StickyHeader />
       <Hero />
       <ProblemSection />
       <Services />
       <Process />
-      <LeadForm />
       <TrustSection />
+      <LeadForm />
       <FinalCta />
     </main>
   );
