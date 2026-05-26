@@ -25,47 +25,102 @@ type Service = {
 
 const services: Service[] = [
   {
-    marker: { type: "text", value: "₽ ⇄ ₿" },
-    title: "Обмен валют / криптовалют",
-    text: "RUB / USDT → местная валюта. Помогаем подобрать понятный маршрут под страну и задачу.",
-    mobileText: "RUB / USDT → местная валюта под вашу страну и город.",
+    marker: { type: "text", value: "₽ → ฿" },
+    title: "RUB → местная валюта",
+    text: "Помогаем согласовать обмен рублей на местную валюту под страну, город, сумму и удобный способ получения.",
+    mobileText: "Согласуем обмен рублей на местную валюту под страну, город и сумму.",
   },
   {
-    marker: { type: "icons", value: ["payments", "local_taxi"] },
-    title: "Доставка наличных",
-    text: "Передача наличных в городе вашего пребывания после согласования деталей с менеджером.",
-    mobileText: "Согласуем детали и город вашего пребывания.",
+    marker: { type: "text", value: "USDT" },
+    title: "USDT → наличные",
+    text: "Подбираем понятный маршрут, если нужно получить наличные за границей после согласования условий с менеджером.",
+    mobileText: "Маршрут для получения наличных за границей после согласования условий.",
   },
   {
     marker: { type: "icons", value: ["credit_card", "task_alt"] },
-    title: "Бронирования и онлайн-оплаты",
-    mobileTitle: "Бронирования и оплаты",
-    text: "Помощь с отелями, авиабилетами, Booking, Agoda, Airbnb и оплатой онлайн-сервисов.",
-    mobileText: "Отели, авиабилеты, Booking, Agoda, Airbnb и онлайн-сервисы.",
+    title: "Оплата бронирований",
+    mobileTitle: "Оплата броней",
+    text: "Помогаем разобраться с оплатой отелей, авиабилетов, Booking, Agoda, Airbnb и других сервисов для поездки.",
+    mobileText: "Отели, авиабилеты, Booking, Agoda, Airbnb и сервисы для поездки.",
   },
   {
     marker: { type: "icons", value: ["home", "attach_money"] },
-    title: "Аренда жилья",
-    text: "Поддержка при аренде жилья для путешествий, зимовки или релокации.",
-    mobileText: "Поддержка при аренде для поездки, зимовки или релокации.",
+    title: "Аренда и бытовые платежи",
+    mobileTitle: "Аренда и платежи",
+    text: "Поддержка с арендой жилья, депозитами и бытовыми платежами, когда нужен понятный порядок действий за границей.",
+    mobileText: "Аренда, депозиты и бытовые платежи за границей.",
   },
 ];
 
 const steps = [
-  "Опишите страну, сумму, город и сроки",
-  "Менеджер предложит маршрут решения",
-  "Выберите Max, Telegram или заявку",
+  "Оставьте заявку или напишите в Max/Telegram",
+  "Менеджер уточнит страну, город, сумму и сроки",
+  "Согласуйте условия до сделки",
 ];
 
 const faqs = [
   {
     question: "Нужно ли вносить предоплату?",
-    answer: "Без предоплаты. Детали менеджер уточнит по вашей задаче.",
+    answer: "Нет. Сначала менеджер уточняет задачу, направление и условия, затем вы принимаете решение.",
   },
   {
     question: "Какие страны доступны?",
-    answer: "Таиланд, Вьетнам и Грузия",
+    answer: "Фокус AntEx - Таиланд, Вьетнам и Грузия. Доступность конкретного города и направления уточняется индивидуально.",
   },
+  {
+    question: "Можно ли решить задачу через Telegram?",
+    answer: "Да. Можно написать менеджеру в Telegram или Max, а форму использовать, если удобнее заранее описать детали.",
+  },
+  {
+    question: "С какими валютами вы помогаете?",
+    answer: "Чаще всего обращаются с RUB и USDT. Итоговый маршрут зависит от страны, суммы и способа получения.",
+  },
+  {
+    question: "Можно ли получить наличные?",
+    answer: "Возможность, город, сумма и порядок передачи согласуются с менеджером до сделки.",
+  },
+  {
+    question: "Помогаете ли с оплатой бронирований?",
+    answer: "Да, можно обсудить отели, авиабилеты, Booking, Agoda, Airbnb и другие сервисы для поездки.",
+  },
+  {
+    question: "Можно ли оплатить аренду или депозит?",
+    answer: "Да, AntEx помогает согласовать такие задачи, если направление и условия доступны для вашей ситуации.",
+  },
+  {
+    question: "Когда я узнаю курс и условия?",
+    answer: "До сделки. Менеджер уточнит вводные и согласует с вами курс, порядок, сроки и доступный маршрут.",
+  },
+  {
+    question: "Где посмотреть отзывы и каналы?",
+    answer: "Ссылки на отзывы, новости и открытые каналы размещены ниже, рядом с кнопками связи.",
+  },
+  {
+    question: "Что именно делает AntEx?",
+    answer: "AntEx помогает согласовать задачу и условия через менеджера. Доступность, порядок и сроки зависят от направления.",
+  },
+];
+
+const problemCards = [
+  {
+    title: "Оплатить жилье или бронь сложнее",
+    text: "Российская карта может не пройти, сервисы меняют правила, а хозяин или отель просит понятный способ оплаты.",
+  },
+  {
+    title: "Наличные нужны в конкретном месте",
+    text: "В поездке важны город, сумма, время и порядок получения, а не абстрактная возможность обмена.",
+  },
+  {
+    title: "Курс и условия хочется знать заранее",
+    text: "Перед сделкой нужно понимать маршрут, сроки, комиссию, формат связи и кто отвечает на вопросы.",
+  },
+];
+
+const trustItems = [
+  "Без предоплаты: сначала согласование условий",
+  "Менеджер объясняет маршрут простым языком",
+  "Фокус на Таиланде, Вьетнаме и Грузии",
+  "Отзывы, новости и открытые каналы доступны до обращения",
 ];
 
 function LogoMark() {
@@ -81,10 +136,10 @@ function CtaLinks({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`flex w-full flex-col gap-3 ${compact ? "sm:flex-row sm:justify-center" : "sm:flex-row"}`}>
       <a className="button-primary" href={maxLink} target="_blank" rel="noreferrer">
-        Написать менеджеру в Max
+        Написать в Max
       </a>
       <a className="button-secondary" href={telegramManagerLink} target="_blank" rel="noreferrer">
-        Написать менеджеру в Telegram
+        Написать в Telegram
       </a>
     </div>
   );
@@ -98,37 +153,42 @@ function Hero() {
         <LogoMark />
         <p className="mt-8 w-full max-w-[25rem] font-mono text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft sm:max-w-4xl sm:text-base">
           <span className="sm:hidden">ANTEX • TH • VN • GE</span>
-          <span className="hidden sm:inline">AntEx • финансовый сервис для путешествий и релокации</span>
+          <span className="hidden sm:inline">AntEx • Таиланд, Вьетнам, Грузия</span>
         </p>
         <h1 className="mt-7 w-full max-w-5xl font-heading text-[38px] font-bold leading-[1.04] text-main sm:text-6xl sm:leading-[1.03] lg:text-[76px]">
           <span className="sm:hidden">
-            Бесплатно разберём
+            RUB/USDT,
             <br />
-            вашу задачу за
+            наличные и
             <br />
-            границей
+            оплаты за границей
           </span>
-          <span className="hidden sm:inline">Бесплатно разберем вашу задачу по деньгам, поездке или релокации</span>
+          <span className="hidden sm:inline">RUB/USDT, наличные и оплаты за границей через менеджера</span>
         </h1>
         <p className="mt-6 w-full max-w-[24rem] text-base leading-8 text-muted sm:max-w-3xl sm:text-xl">
           <span className="sm:hidden">
-            Обмен RUB/USDT, наличные,
+            Таиланд, Вьетнам, Грузия.
             <br />
-            бронирования и аренда жилья в
+            Обмен, наличные, брони и аренда -
             <br />
-            Таиланде, Вьетнаме и Грузии - без
+            без предоплаты, через менеджера,
             <br />
-            предоплаты.
+            в Max или Telegram.
           </span>
           <span className="hidden sm:inline">
-            Обмен RUB/USDT на местную валюту, доставка наличных, бронирования и аренда жилья в Таиланде, Вьетнаме и
-            Грузии - без предоплаты и лишней переписки.
+            Помогаем согласовать обмен RUB/USDT на местную валюту, получение наличных, бронирования, аренду и бытовые
+            платежи в Таиланде, Вьетнаме и Грузии. Без предоплаты. Через менеджера. В Max или Telegram.
           </span>
         </p>
 
-        <div className="mt-8 grid w-full max-w-2xl gap-3 sm:grid-cols-2">
-          <TrustBadge>Более 3 лет работы</TrustBadge>
+        <p className="mt-5 w-full max-w-3xl text-sm font-bold leading-6 text-gold-soft sm:text-base">
+          Сначала уточняем задачу, маршрут и условия. Вы соглашаетесь только после понятного разбора.
+        </p>
+
+        <div className="mt-8 grid w-full max-w-3xl gap-3 sm:grid-cols-3">
           <TrustBadge>Без предоплаты</TrustBadge>
+          <TrustBadge>Через менеджера</TrustBadge>
+          <TrustBadge>Max или Telegram</TrustBadge>
         </div>
 
         <div className="mt-8 w-full max-w-2xl">
@@ -140,6 +200,32 @@ function Hero() {
         </p>
       </div>
     </header>
+  );
+}
+
+function ProblemSection() {
+  return (
+    <section className="section-shell pt-0">
+      <div>
+        <SectionIntro
+          title="За границей финансовые задачи быстро становятся бытовыми"
+          mobileTitle="За границей все сложнее"
+          text="Когда нужно оплатить жилье, получить наличные или понять курс, важны не громкие обещания, а спокойное согласование маршрута до сделки."
+          mobileText="Оплаты, наличные и курс лучше согласовать заранее, пока задача не стала срочной."
+        />
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {problemCards.map((item) => (
+            <article className="info-card" key={item.title}>
+              <h3 className="text-xl font-bold leading-snug text-main">{item.title}</h3>
+              <p className="mt-4 text-sm leading-6 text-muted sm:text-base">{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mx-auto mt-8 max-w-3xl text-center text-base font-bold leading-7 text-gold-soft sm:text-lg">
+          AntEx помогает разложить задачу по шагам и согласовать условия до того, как вы принимаете решение.
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -285,8 +371,8 @@ function Process() {
   return (
     <section className="section-shell bg-[#081815]/70">
       <SectionIntro
-        title="Как проходит бесплатный разбор"
-        text="Коротко опишите ситуацию - менеджер предложит понятный маршрут решения."
+        title="Как проходит согласование"
+        text="Три шага до понятных условий: сначала обращение, затем уточнение деталей, потом решение без давления и предоплаты."
       />
       <div className="mt-10 grid gap-5 lg:grid-cols-3">
         {steps.map((step, index) => (
@@ -295,6 +381,30 @@ function Process() {
             <h3 className="mt-6 text-xl font-bold leading-snug text-main sm:text-2xl">{step}</h3>
           </article>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function TrustSection() {
+  return (
+    <section className="section-shell bg-[#081815]/70">
+      <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <div>
+          <h2 className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl">Почему обращаются в AntEx</h2>
+          <p className="mt-5 text-base leading-8 text-muted sm:text-lg">
+            Здесь не нужно угадывать маршрут самому. Менеджер уточняет вводные, объясняет порядок и согласует условия до
+            сделки.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {trustItems.map((item) => (
+            <div className="trust-point" key={item}>
+              <span className="trust-point__icon" aria-hidden="true">✓</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -453,17 +563,18 @@ function FinalCta() {
   return (
     <section className="section-shell pb-16 lg:pb-24">
       <div className="rounded-[28px] border border-gold/40 bg-[#0A201C]/80 p-6 text-center shadow-panel sm:p-10 lg:p-14">
-        <h2 className="font-heading text-3xl font-bold text-main sm:text-5xl">Начните с одного сообщения</h2>
+        <h2 className="font-heading text-3xl font-bold text-main sm:text-5xl">Нужно решить финансовый вопрос за границей?</h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-          Max, Telegram или форма заявки - пользователь сам выбирает удобный способ связи.
+          Напишите в Max или Telegram. Без предоплаты. Сначала согласование условий.
         </p>
         <div className="mx-auto mt-8 max-w-2xl">
           <CtaLinks compact />
         </div>
 
+        <h3 className="mt-12 font-heading text-2xl font-bold text-main sm:text-3xl">FAQ</h3>
         <div className="mt-10 grid gap-4 text-left md:grid-cols-2">
           {faqs.map((faq) => (
-            <article className="rounded-3xl border border-gold/30 bg-[#071412]/70 p-5" key={faq.question}>
+            <article className="faq-card" key={faq.question}>
               <h3 className="text-lg font-black text-main">{faq.question}</h3>
               <p className="mt-3 text-sm leading-6 text-muted">{faq.answer}</p>
             </article>
@@ -478,6 +589,11 @@ function FinalCta() {
           <a href={maxLink} target="_blank" rel="noreferrer">Max</a>
           <a href={threadsLink} target="_blank" rel="noreferrer">Threads</a>
         </nav>
+
+        <p className="mx-auto mt-8 max-w-4xl border-t border-gold/20 pt-6 text-xs leading-6 text-muted sm:text-sm">
+          AntEx помогает согласовать финансовые задачи за границей через менеджера. Условия, курс, доступность
+          направлений и сроки уточняются индивидуально до сделки.
+        </p>
       </div>
     </section>
   );
@@ -487,9 +603,11 @@ export function App() {
   return (
     <main className="min-h-screen overflow-hidden bg-ink font-body text-main">
       <Hero />
+      <ProblemSection />
       <Services />
       <Process />
       <LeadForm />
+      <TrustSection />
       <FinalCta />
     </main>
   );
