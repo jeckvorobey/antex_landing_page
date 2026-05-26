@@ -264,6 +264,23 @@ p {
   color: transparent;
 }
 
+.heading-reveal {
+  perspective: 900px;
+}
+
+.heading-reveal__word {
+  display: inline-block;
+  transform-origin: 50% 85%;
+  will-change: opacity, transform, filter;
+}
+
+.heading-reveal__word--gold {
+  background: linear-gradient(110deg, var(--gold-bright), var(--gold), #fff2d2);
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(216, 168, 75, 0.18));
+}
+
 .hero-text {
   width: 100%;
   max-width: 43rem;

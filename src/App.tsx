@@ -1,6 +1,6 @@
 import { FormEvent, KeyboardEvent, useId, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { cardHover, fadeIn, fadeUp, staggerContainer, tapScale, viewportOnce } from "./motion";
+import { cardHover, fadeIn, fadeUp, headingRevealContainer, headingRevealWord, staggerContainer, tapScale, viewportOnce } from "./motion";
 
 const maxLink = "https://max.ru/u/f9LHodD0cOJldnxoo8T-CJxSYCOJHc6iRrlAGZiUJLMLr0ZdJMj1yUfpBmg";
 const telegramManagerLink = "https://t.me/m/ntagYZyVZjVl";
@@ -177,6 +177,85 @@ function CtaLinks({ compact = false }: { compact?: boolean }) {
   );
 }
 
+function RevealHeading({
+  as,
+  className,
+  highlight = [],
+  mode = "viewport",
+  text,
+}: {
+  as: "h1" | "h2";
+  className: string;
+  highlight?: string[];
+  mode?: "animate" | "viewport";
+  text: string;
+}) {
+  const reduceMotion = useReducedMotion();
+  const words = text.split(" ");
+
+  if (reduceMotion) {
+    const plainWords = words.map((word, index) => {
+      const cleanWord = word.replace(/[,.!?]/g, "");
+      const isHighlighted = highlight.includes(cleanWord);
+
+      return (
+        <span className={isHighlighted ? "gold-gradient" : undefined} key={`${word}-${index}`}>
+          {word}
+          {index < words.length - 1 ? " " : ""}
+        </span>
+      );
+    });
+
+    return as === "h1" ? <h1 className={className}>{plainWords}</h1> : <h2 className={className}>{plainWords}</h2>;
+  }
+
+  const props = {
+    "aria-label": text,
+    className: `${className} heading-reveal`,
+    initial: "hidden",
+    variants: headingRevealContainer,
+  };
+
+  const content = words.map((word, index) => {
+    const cleanWord = word.replace(/[,.!?]/g, "");
+    const isHighlighted = highlight.includes(cleanWord);
+
+    return (
+      <motion.span
+        aria-hidden="true"
+        className={`heading-reveal__word${isHighlighted ? " heading-reveal__word--gold" : ""}`}
+        key={`${word}-${index}`}
+        variants={headingRevealWord}
+      >
+        {word}
+        {index < words.length - 1 ? "\u00a0" : ""}
+      </motion.span>
+    );
+  });
+
+  if (as === "h1") {
+    return mode === "animate" ? (
+      <motion.h1 {...props} animate="visible">
+        {content}
+      </motion.h1>
+    ) : (
+      <motion.h1 {...props} viewport={viewportOnce} whileInView="visible">
+        {content}
+      </motion.h1>
+    );
+  }
+
+  return mode === "animate" ? (
+    <motion.h2 {...props} animate="visible">
+      {content}
+    </motion.h2>
+  ) : (
+    <motion.h2 {...props} viewport={viewportOnce} whileInView="visible">
+      {content}
+    </motion.h2>
+  );
+}
+
 function RouteCard() {
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
@@ -226,18 +305,20 @@ function Hero() {
             <span className="sm:hidden">ANTEX • TH • VN • GE</span>
             <span className="hidden sm:inline">AntEx • Таиланд, Вьетнам, Грузия</span>
           </motion.p>
-          <motion.h1 className="hero-title" variants={fadeUp}>
-            <span className="sm:hidden">
-              RUB/USDT,
-              <br />
-              наличные и оплаты
-              <br />
-              за границей
-            </span>
-            <span className="hidden sm:inline">
-              RUB/USDT, наличные и <span className="gold-gradient">оплаты за границей</span> через менеджера
-            </span>
-          </motion.h1>
+          <RevealHeading
+            as="h1"
+            className="hero-title sm:hidden"
+            highlight={["оплаты", "границей"]}
+            mode="animate"
+            text="RUB/USDT, наличные и оплаты за границей"
+          />
+          <RevealHeading
+            as="h1"
+            className="hero-title hidden sm:block"
+            highlight={["оплаты", "за", "границей"]}
+            mode="animate"
+            text="RUB/USDT, наличные и оплаты за границей через менеджера"
+          />
           <motion.p className="hero-text" variants={fadeUp}>
             <span className="sm:hidden">
               Таиланд, Вьетнам, Грузия.
@@ -311,10 +392,14 @@ function TrustBadge({ children }: { children: string }) {
 function SectionIntro({ title, text, mobileTitle, mobileText }: { title: string; text: string; mobileTitle?: string; mobileText?: string }) {
   return (
     <motion.div className="mx-auto w-full max-w-3xl text-center" variants={fadeUp}>
-      <h2 className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl">
-        <span className={mobileTitle ? "sm:hidden" : undefined}>{mobileTitle ?? title}</span>
-        {mobileTitle && <span className="hidden sm:inline">{title}</span>}
-      </h2>
+      {mobileTitle ? (
+        <>
+          <RevealHeading as="h2" className="font-heading text-3xl font-bold leading-tight text-main sm:hidden" text={mobileTitle} />
+          <RevealHeading as="h2" className="hidden font-heading text-3xl font-bold leading-tight text-main sm:block sm:text-5xl" text={title} />
+        </>
+      ) : (
+        <RevealHeading as="h2" className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl" text={title} />
+      )}
       <p className="mt-5 text-base leading-7 text-muted sm:text-lg">
         <span className={mobileText ? "sm:hidden" : undefined}>{mobileText ?? text}</span>
         {mobileText && <span className="hidden sm:inline">{text}</span>}
@@ -451,7 +536,7 @@ function TrustSection() {
       <motion.div className="trust-layout" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
         <motion.div variants={fadeUp}>
           <p className="section-eyebrow">Доверие до обращения</p>
-          <h2 className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl">Почему обращаются в AntEx</h2>
+          <RevealHeading as="h2" className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl" text="Почему обращаются в AntEx" />
           <p className="mt-5 text-base leading-8 text-muted sm:text-lg">
             Здесь не нужно угадывать маршрут самому. Менеджер уточняет вводные, объясняет порядок и согласует условия до
             сделки.
@@ -524,7 +609,7 @@ function LeadForm() {
       <motion.div className="lead-layout" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
         <motion.div variants={fadeUp}>
           <p className="section-eyebrow">Заявка</p>
-          <h2 className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl">Оставьте заявку или напишите напрямую</h2>
+          <RevealHeading as="h2" className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl" text="Оставьте заявку или напишите напрямую" />
           <p className="mt-5 text-base leading-8 text-muted sm:text-lg">
             Форма нужна для тех, кто хочет заранее описать задачу. Для быстрых вопросов - кнопки Max и Telegram.
           </p>
@@ -721,7 +806,12 @@ function FinalCta() {
     <section className="section-shell final-section pb-16 lg:pb-24">
       <motion.div className="final-panel" initial="hidden" whileInView="visible" variants={fadeUp} viewport={viewportOnce}>
         <motion.div className="final-panel__light" style={{ y: reduceMotion ? 0 : lightY }} aria-hidden="true" />
-        <h2 className="font-heading text-3xl font-bold text-main sm:text-5xl">Нужно решить финансовый вопрос за границей?</h2>
+        <RevealHeading
+          as="h2"
+          className="font-heading text-3xl font-bold leading-tight text-main sm:text-5xl"
+          highlight={["финансовый", "границей"]}
+          text="Нужно решить финансовый вопрос за границей?"
+        />
         <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
           Напишите в Max или Telegram. Без предоплаты. Сначала согласование условий.
         </p>

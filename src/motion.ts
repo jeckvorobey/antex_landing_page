@@ -24,6 +24,35 @@ export const staggerContainer: Variants = {
   },
 };
 
+export const headingRevealContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.12,
+    },
+  },
+};
+
+export const headingRevealWord: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 22,
+    rotateX: 28,
+    filter: "blur(5px)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1.02,
+      ease: premiumEase,
+    },
+  },
+};
+
 export const cardHover = {
   y: -4,
   transition: { duration: 0.2, ease: premiumEase },
